@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>مقياس الجذور النفسية المتقدم | Advanced Depth Scale</title>
+    <title>مقياس الجذور النفسية الشامل | Comprehensive Depth Scale</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -11,96 +11,79 @@
         .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border: 1px solid #e2e8f0; }
         .fade-in { animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .stage-transition { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
-        .btn-opt { transition: all 0.2s ease; border: 2px solid #f1f5f9; }
+        .btn-opt { transition: all 0.2s ease; border: 2px solid #f1f5f9; text-align: right; width: 100%; padding: 1.25rem; border-radius: 1rem; font-weight: 700; background: white; }
         .btn-opt:hover { border-color: #3b82f6; background: #eff6ff; transform: translateX(-4px); }
+        .stage-transition { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
     </style>
 </head>
 <body class="antialiased">
 
 <div id="app" class="min-h-screen flex flex-col items-center py-6 md:py-12 px-4">
     
-    <!-- Header -->
     <header class="w-full max-w-4xl flex justify-between items-center mb-8">
         <div class="flex items-center gap-3">
             <div id="brandIcon" class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg transition-colors duration-500">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
             <div>
                 <h1 class="text-xl font-extrabold text-slate-800">مقياس الجذور</h1>
-                <span id="versionTag" class="text-[10px] font-bold text-blue-500 bg-blue-50 px-2 py-0.5 rounded-full uppercase">Professional v1.3</span>
+                <span class="text-[10px] font-bold text-blue-500 bg-blue-50 px-2 py-0.5 rounded-full uppercase">Enterprise v1.4</span>
             </div>
         </div>
-        <button onclick="toggleLanguage()" class="text-sm font-bold text-slate-400 hover:text-blue-600 transition">EN / عربي</button>
+        <button onclick="toggleLanguage()" class="text-sm font-bold text-slate-400 hover:text-blue-600 transition">English</button>
     </header>
 
-    <main class="w-full max-w-4xl glass-card rounded-[3rem] shadow-xl shadow-slate-200/40 p-8 md:p-16 min-h-[550px] relative overflow-hidden">
+    <main class="w-full max-w-4xl glass-card rounded-[3rem] shadow-xl p-8 md:p-16 min-h-[550px] relative overflow-hidden">
         
         <!-- Intro -->
         <div id="intro" class="text-center py-10 fade-in">
-            <h2 class="text-4xl font-black text-slate-800 mb-6 leading-tight">رحلة البحث عن <span class="text-blue-600">السلام الداخلي</span></h2>
-            <p class="text-lg text-slate-500 mb-10 max-w-xl mx-auto">مقياس متقدم بـ 5 مستويات للاستجابة، مصمم بدقة لفهم تداخلات الطفولة والمراهقة مع شخصيتك الحالية.</p>
-            <button onclick="startTest()" class="bg-slate-900 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:bg-blue-600 transition-all shadow-xl active:scale-95">ابدأ المقياس الآن</button>
+            <h2 class="text-4xl font-black text-slate-800 mb-6 leading-tight">التحليل النفسي <span class="text-blue-600">الخماسي</span></h2>
+            <p class="text-lg text-slate-500 mb-10 max-w-xl mx-auto">مقياس متطور يحلل أثر الماضي على 5 محاور رئيسية للصحة النفسية، مصمم بدقة لقطع دائرة الألم وبناء مستقبل عائلي آمن.</p>
+            <button onclick="startTest()" class="bg-blue-600 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-xl active:scale-95">بدء التحليل الشامل</button>
         </div>
 
-        <!-- Stage Break (Hidden) -->
+        <!-- Stage Break -->
         <div id="stageBreak" class="hidden absolute inset-0 stage-transition flex flex-col items-center justify-center text-white text-center p-8 z-50">
-            <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6 animate-bounce">
-                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2.5" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
-            </div>
-            <h2 id="breakTitle" class="text-4xl font-black mb-4">انتهت مرحلة الطفولة</h2>
-            <p id="breakDesc" class="text-xl opacity-90 mb-10">ننتقل الآن لاستكشاف مرحلة المراهقة (13 - 18 سنة)</p>
-            <button onclick="continueToAdolescence()" class="bg-white text-blue-600 px-10 py-4 rounded-xl font-black shadow-2xl hover:scale-105 transition">متابعة الرحلة</button>
+            <h2 class="text-4xl font-black mb-4">انتهت مرحلة الطفولة</h2>
+            <p class="text-xl opacity-90 mb-10">ننتقل الآن لاستكشاف مرحلة المراهقة والشباب</p>
+            <button onclick="continueTest()" class="bg-white text-blue-600 px-10 py-4 rounded-xl font-black shadow-2xl hover:scale-105 transition">متابعة</button>
         </div>
 
         <!-- Quiz Container -->
         <div id="quiz" class="hidden fade-in">
             <div class="flex items-center justify-between mb-10">
-                <div id="stageIndicator" class="flex items-center gap-2">
+                <div class="flex items-center gap-2">
                     <div id="stageDot" class="w-3 h-3 rounded-full bg-blue-600 animate-pulse"></div>
                     <span id="stageText" class="font-bold text-slate-700">المرحلة: الطفولة</span>
                 </div>
-                <div class="text-left">
-                    <span id="progressNum" class="text-2xl font-black text-slate-200 block leading-none tracking-tighter">01</span>
-                </div>
+                <span id="progressNum" class="text-2xl font-black text-slate-200">01 / 15</span>
             </div>
-
-            <h3 id="questionText" class="text-2xl md:text-3xl font-bold text-slate-800 mb-12 leading-relaxed">السؤال؟</h3>
-
+            <h3 id="questionText" class="text-2xl md:text-3xl font-bold text-slate-800 mb-12 leading-relaxed min-h-[100px]"></h3>
             <div id="options" class="space-y-3"></div>
-
             <div class="mt-12 pt-8 border-t flex justify-between items-center">
-                <button id="prevBtn" onclick="goBack()" class="text-slate-300 font-bold hover:text-slate-600 flex items-center gap-2 transition">
-                    <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7-7 7" stroke-width="3"></path></svg>
-                    السابق
-                </button>
+                <button id="prevBtn" onclick="goBack()" class="text-slate-300 font-bold hover:text-slate-600">السابق</button>
                 <div class="w-48 bg-slate-50 h-1.5 rounded-full overflow-hidden">
-                    <div id="pBar" class="bg-blue-600 h-full transition-all duration-700" style="width: 10%"></div>
+                    <div id="pBar" class="bg-blue-600 h-full transition-all duration-700" style="width: 0%"></div>
                 </div>
             </div>
         </div>
 
         <!-- Result Screen -->
         <div id="result" class="hidden fade-in">
-            <div class="flex items-center gap-4 mb-10">
-                <h2 class="text-3xl font-black text-slate-800">التحليل النهائي</h2>
-                <div class="h-1 flex-grow bg-slate-100 rounded-full"></div>
-            </div>
-            
-            <div id="resSummary" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"></div>
+            <h2 class="text-3xl font-black text-slate-800 mb-8">نتائج التحليل العميق</h2>
             <div id="symptomList" class="space-y-8 mb-12"></div>
 
             <div id="confirmResult" class="p-8 bg-blue-50 rounded-[2rem] border border-blue-100 text-center mb-12">
-                <h4 class="text-xl font-bold text-blue-900 mb-4">هل تجد النتائج متسقة مع مشاعرك؟</h4>
+                <h4 class="text-xl font-bold text-blue-900 mb-4">هل تجد هذه النتائج تلامس واقعك الحالي؟</h4>
                 <div class="flex justify-center gap-4">
-                    <button onclick="revealAdvice()" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition">نعم، دقيق جداً</button>
-                    <button onclick="revealAdvice()" class="bg-white text-blue-600 border border-blue-200 px-8 py-3 rounded-xl font-bold transition">إلى حد كبير</button>
+                    <button onclick="revealAdvice()" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold">نعم، دقيق جداً</button>
+                    <button onclick="revealAdvice()" class="bg-white text-blue-600 border border-blue-200 px-8 py-3 rounded-xl font-bold transition">إلى حد ما</button>
                 </div>
             </div>
 
             <div id="adviceSec" class="hidden space-y-6 fade-in">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="adviceGrid"></div>
-                <button onclick="location.reload()" class="w-full py-6 text-slate-400 font-bold hover:text-blue-600">إغلاق التقرير وإعادة الاختبار</button>
+                <button onclick="location.reload()" class="w-full py-6 text-slate-400 font-bold hover:text-blue-600 transition">إعادة الاختبار</button>
             </div>
         </div>
     </main>
@@ -109,55 +92,45 @@
 <script>
     const translations = {
         ar: {
-            childhood: "الطفولة (0-12)", adolescence: "المراهقة (13-18)",
             opt: ["دائماً", "غالباً", "أحياناً", "نادراً", "أبداً"],
-            anxiety: "القلق", stress: "التوتر", social: "الرهاب الاجتماعي",
-            low: "مستقر", mid: "متأثر", high: "عميق الأثر",
-            advTitle: ["فهم الشعور", "التعامل معه", "حماية الأسرة"],
-            advText: [
-                "مشاعرك اليوم هي صدى لصوت طفل في داخلك كان يحاول النجاة. تقبل هذا الصوت هو أول خطوة للسكينة.",
-                "استخدم تمارين التنفس المربع (4-4-4-4) عند الشعور بالضغط لفصل الماضي عن اللحظة الحالية.",
-                "عندما تشعر بالانفعال تجاه أسرتك، خذ 10 ثوانٍ من الصمت. أنت تكسر سلسلة من الألم دامت لأجيال."
-            ]
-        },
-        en: {
-            childhood: "Childhood (0-12)", adolescence: "Adolescence (13-18)",
-            opt: ["Always", "Often", "Sometimes", "Rarely", "Never"],
-            anxiety: "Anxiety", stress: "Stress", social: "Social Phobia",
-            low: "Stable", mid: "Influenced", high: "Deeply Impacted",
-            advTitle: ["Understanding", "Coping", "Family Protection"],
-            advText: [
-                "Your feelings today are echoes of a child within trying to survive. Acceptance is the first step to peace.",
-                "Use square breathing (4-4-4-4) when stressed to detach the past from the present moment.",
-                "When irritable with family, take 10 seconds of silence. You are breaking a chain of pain that lasted generations."
+            stages: { c: "الطفولة (0-12)", a: "المراهقة (13-18)" },
+            levels: { low: "مستقر", mid: "متأثر", high: "مرتفع الأثر" },
+            advice: [
+                { t: "فهم الشعور", d: "مشاعرك الحالية هي استجابة ذكية من عقلك لحمايتك من آلام قديمة. الوعي هو أول خطوة للتحرر." },
+                { t: "التعامل معه", d: "مارس تقنيات التجذر (Grounding) عند الشعور بالضغط لفصل ذكريات الماضي عن أمان اللحظة الحالية." },
+                { t: "حماية الأسرة", d: "أنت الآن البطل الذي يكسر سلسلة الألم. بوعيك هذا، تمنع توارث هذه الأنماط لأبنائك." }
             ]
         }
     };
 
-    let curLang = 'ar';
     let curStep = 0;
     let answers = [];
 
-    const qs = [
-        // Childhood
-        { id: 1, cat: 0, st: 'c', ar: "هل كنت تشعر بالقلق المستمر من فقدان دعم والديك؟", en: "Did you feel constant anxiety about losing your parents' support?", inv: false },
-        { id: 2, cat: 1, st: 'c', ar: "هل كان يُمارس عليك ضغط نفسي لتكون الأفضل دائماً؟", en: "Was psychological pressure exerted on you to always be the best?", inv: false },
-        { id: 3, cat: 0, st: 'c', ar: "هل كنت تجد من يحتضن مخاوفك ويطمئنك؟", en: "Did you find someone to embrace your fears and reassure you?", inv: true },
-        { id: 4, cat: 2, st: 'c', ar: "هل كنت تخشى لفت الأنظار إليك في التجمعات؟", en: "Did you fear drawing attention to yourself in gatherings?", inv: false },
-        { id: 5, cat: 0, st: 'c', ar: "هل كان جو المنزل يسوده التوتر غير المتوقع؟", en: "Was the home atmosphere dominated by unpredictable tension?", inv: false },
-        // Adolescence
-        { id: 6, cat: 2, st: 'a', ar: "هل كنت تشعر بأنك 'مراقب' ومُنتقد من أقرانك؟", en: "Did you feel 'watched' and criticized by your peers?", inv: false },
-        { id: 7, cat: 1, st: 'a', ar: "هل كنت تخفي مشاعرك الحقيقية لتجنب الصدام؟", en: "Did you hide your true feelings to avoid conflict?", inv: false },
-        { id: 8, cat: 2, st: 'a', ar: "هل كانت لديك القدرة على قول 'لا' بوضوح؟", en: "Did you have the ability to clearly say 'no'?", inv: true },
-        { id: 9, cat: 0, st: 'a', ar: "هل كنت تشعر بضيق في التنفس عند مواجهة مواقف اجتماعية؟", en: "Did you feel shortness of breath when facing social situations?", inv: false },
-        { id: 10, cat: 1, st: 'a', ar: "هل كنت تشعر بمسؤولية ثقيلة تجاه مشاكل عائلتك؟", en: "Did you feel a heavy responsibility towards your family's problems?", inv: false }
+    const categories = [
+        { id: 0, name: "القلق والتوتر الدائم", info: "يتعلق بالشعور بعدم الأمان والمخاوف المستقبلية." },
+        { id: 1, name: "الرهاب والحذر الاجتماعي", info: "يتعلق بالخوف من التقييم السلبي وتجنب التجمعات." },
+        { id: 2, name: "تقدير الذات والاكتئاب", info: "يتعلق بالشعور بعدم الكفاءة وفقدان الشغف." },
+        { id: 3, name: "آثار الصدمات (PTSD)", info: "يتعلق بالذكريات المؤلمة وردود الفعل العاطفية القوية." },
+        { id: 4, name: "الاحتراق والمسؤولية المفرطة", info: "يتعلق بتحمل أعباء فوق الطاقة وتلبية احتياجات الآخرين." }
     ];
 
-    function toggleLanguage() {
-        curLang = curLang === 'ar' ? 'en' : 'ar';
-        document.documentElement.dir = curLang === 'ar' ? 'rtl' : 'ltr';
-        if(curStep < qs.length) renderQ();
-    }
+    const questions = [
+        { cat: 0, st: 'c', q: "هل كنت تشعر بقلق مستمر من حدوث شيء سيء في طفولتك؟", inv: false },
+        { cat: 1, st: 'c', q: "هل كنت تخشى لفت الأنظار إليك أو التحدث أمام الغرباء؟", inv: false },
+        { cat: 2, st: 'c', q: "هل كنت تشعر بأن حب والديك لك مرتبط بنجاحاتك فقط؟", inv: false },
+        { cat: 3, st: 'c', q: "هل كانت هناك أحداث مؤلمة تجعلك تشعر بالعجز في منزلك؟", inv: false },
+        { cat: 4, st: 'c', q: "هل كنت تضطر للاهتمام بمشاعر والديك أو إخوتك قبل نفسك؟", inv: false },
+        { cat: 0, st: 'c', q: "هل كنت تجد من يحتضن مخاوفك ويشعرك بالأمان التام؟", inv: true },
+        { cat: 3, st: 'a', q: "هل تعاني من ذكريات قديمة تقتحم عقلك فجأة وتزعجك؟", inv: false },
+        { cat: 1, st: 'a', q: "هل تجد صعوبة حالياً في التعبير عن رأيك خوفاً من النقد؟", inv: false },
+        { cat: 4, st: 'a', q: "هل تشعر بالمسؤولية عن سعادة من حولك وتتجاهل تعبك؟", inv: false },
+        { cat: 2, st: 'a', q: "هل يراودك شعور بأنك أقل قيمة من الآخرين مهما فعلت؟", inv: false },
+        { cat: 0, st: 'a', q: "هل تشعر بضيق جسدي (تنفس/نبض) عند التفكير في المستقبل؟", inv: false },
+        { cat: 1, st: 'a', q: "هل كان لديك صديق مقرب تشعر معه بالقبول دون تصنع؟", inv: true },
+        { cat: 2, st: 'a', q: "هل فقدت الاهتمام بأنشطة كانت تسعدك في الماضي؟", inv: false },
+        { cat: 3, st: 'a', q: "هل تتجنب أماكن أو أشخاص يذكرونك بتجارب قاسية؟", inv: false },
+        { cat: 4, st: 'a', q: "هل تشعر بأنك استنفدت طاقتك تماماً في محاولة إرضاء الآخرين؟", inv: false }
+    ];
 
     function startTest() {
         document.getElementById('intro').classList.add('hidden');
@@ -166,34 +139,26 @@
     }
 
     function renderQ() {
-        const q = qs[curStep];
-        const t = translations[curLang];
-        
-        // Update Stage & Visuals
-        document.getElementById('stageText').innerText = q.st === 'c' ? t.childhood : t.adolescence;
+        const q = questions[curStep];
+        document.getElementById('stageText').innerText = q.st === 'c' ? "المرحلة: الطفولة" : "المرحلة: المراهقة";
         document.getElementById('stageDot').className = `w-3 h-3 rounded-full animate-pulse ${q.st === 'c' ? 'bg-blue-600' : 'bg-purple-600'}`;
-        document.getElementById('brandIcon').className = `w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg transition-colors duration-500 ${q.st === 'c' ? 'bg-blue-600' : 'bg-purple-600'}`;
+        document.getElementById('progressNum').innerText = `${curStep + 1} / 15`;
+        document.getElementById('pBar').style.width = `${((curStep + 1) / 15) * 100}%`;
+        document.getElementById('questionText').innerText = q.q;
         
-        document.getElementById('progressNum').innerText = (curStep + 1).toString().padStart(2, '0');
-        document.getElementById('pBar').style.width = `${(curStep + 1) * 10}%`;
-        document.getElementById('questionText').innerText = q[curLang];
-        
-        document.getElementById('options').innerHTML = t.opt.map((o, i) => `
-            <button onclick="handleAns(${4-i})" class="btn-opt w-full text-start p-5 rounded-2xl font-bold text-slate-700 bg-white">
+        document.getElementById('options').innerHTML = translations.ar.opt.map((o, i) => `
+            <button onclick="handleAns(${4-i})" class="btn-opt">
                 ${o}
             </button>
         `).join('');
-
         document.getElementById('prevBtn').style.opacity = curStep > 0 ? '1' : '0';
     }
 
     function handleAns(val) {
-        const q = qs[curStep];
-        answers[curStep] = q.inv ? (4 - val) : val;
-
-        if (curStep === 4) { // End of childhood
+        answers[curStep] = questions[curStep].inv ? (4 - val) : val;
+        if (curStep === 5 && questions[curStep].st === 'c') {
             showBreak();
-        } else if (curStep < qs.length - 1) {
+        } else if (curStep < questions.length - 1) {
             curStep++;
             renderQ();
         } else {
@@ -206,7 +171,7 @@
         document.getElementById('stageBreak').classList.remove('hidden');
     }
 
-    function continueToAdolescence() {
+    function continueTest() {
         curStep++;
         document.getElementById('stageBreak').classList.add('hidden');
         document.getElementById('quiz').classList.remove('hidden');
@@ -219,44 +184,26 @@
         document.getElementById('quiz').classList.add('hidden');
         document.getElementById('result').classList.remove('hidden');
         
-        const t = translations[curLang];
-        const scores = [0,0,0]; // Anxiety, Stress, Social
-        qs.forEach((q, i) => scores[q.cat] += answers[i]);
+        const catResults = categories.map(cat => {
+            const score = questions.reduce((acc, q, i) => q.cat === cat.id ? acc + (answers[i] || 0) : acc, 0);
+            return { ...cat, score };
+        }).sort((a, b) => b.score - a.score);
 
-        const cSum = answers.slice(0,5).reduce((a,b)=>a+b,0);
-        const aSum = answers.slice(5,10).reduce((a,b)=>a+b,0);
-
-        const getLvl = (s, max) => {
-            const p = (s/max)*100;
-            if(p < 30) return { n: t.low, c: 'text-emerald-500', b: 'bg-emerald-50' };
-            if(p < 70) return { n: t.mid, c: 'text-amber-500', b: 'bg-amber-50' };
-            return { n: t.high, c: 'text-rose-500', b: 'bg-rose-50' };
-        }
-
-        document.getElementById('resSummary').innerHTML = `
-            <div class="p-6 rounded-3xl ${getLvl(cSum, 20).b} text-center">
-                <p class="text-xs font-bold text-slate-400 mb-2 uppercase">${t.childhood}</p>
-                <p class="text-2xl font-black ${getLvl(cSum, 20).c}">${getLvl(cSum, 20).n}</p>
-            </div>
-            <div class="p-6 rounded-3xl ${getLvl(aSum, 20).b} text-center">
-                <p class="text-xs font-bold text-slate-400 mb-2 uppercase">${t.adolescence}</p>
-                <p class="text-2xl font-black ${getLvl(aSum, 20).c}">${getLvl(aSum, 20).n}</p>
-            </div>
-        `;
-
-        const cats = [t.anxiety, t.stress, t.social];
-        const cMax = [12, 12, 16];
-        document.getElementById('symptomList').innerHTML = scores.map((s, i) => {
-            const l = getLvl(s, cMax[i]);
+        document.getElementById('symptomList').innerHTML = catResults.map(res => {
+            const p = (res.score / 12) * 100;
+            const level = p < 35 ? translations.ar.levels.low : p < 70 ? translations.ar.levels.mid : translations.ar.levels.high;
+            const color = p < 35 ? 'bg-emerald-500' : p < 70 ? 'bg-amber-500' : 'bg-rose-500';
+            const txt = p < 35 ? 'text-emerald-600' : p < 70 ? 'text-amber-600' : 'text-rose-600';
             return `
-                <div>
-                    <div class="flex justify-between mb-3 font-bold">
-                        <span>${cats[i]}</span>
-                        <span class="${l.c}">${l.n}</span>
+                <div class="fade-in">
+                    <div class="flex justify-between mb-2 font-bold">
+                        <span>${res.name}</span>
+                        <span class="${txt}">${level}</span>
                     </div>
-                    <div class="w-full bg-slate-50 h-3 rounded-full overflow-hidden">
-                        <div class="h-full ${l.c.replace('text','bg')} transition-all duration-1000" style="width: ${(s/cMax[i])*100}%"></div>
+                    <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
+                        <div class="h-full ${color} transition-all duration-1000" style="width: ${p}%"></div>
                     </div>
+                    <p class="text-xs text-slate-400 mt-1">${res.info}</p>
                 </div>
             `;
         }).join('');
@@ -265,11 +212,10 @@
     function revealAdvice() {
         document.getElementById('confirmResult').classList.add('hidden');
         document.getElementById('adviceSec').classList.remove('hidden');
-        const t = translations[curLang];
-        document.getElementById('adviceGrid').innerHTML = t.advTitle.map((title, i) => `
+        document.getElementById('adviceGrid').innerHTML = translations.ar.advice.map(a => `
             <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
-                <h5 class="font-black text-blue-600 mb-3">${title}</h5>
-                <p class="text-sm text-slate-500 leading-relaxed">${t.advText[i]}</p>
+                <h5 class="font-black text-blue-600 mb-3">${a.t}</h5>
+                <p class="text-sm text-slate-500 leading-relaxed">${a.d}</p>
             </div>
         `).join('');
     }
