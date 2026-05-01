@@ -3,52 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>مقياس الجذور النفسية v2.0 | شفق</title>
+    <title>مقياس الجذور النفسية v2.0 | شفق - النسخة الفاتحة</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background: radial-gradient(ellipse at 50% 0%, #1a1025 0%, #0f0c1a 60%);
-            color: #e2e8f0;
+            background: #fdfdfe;
+            color: #1e293b;
             min-height: 100vh;
             margin: 0;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
         }
         .btn-opt {
             transition: all 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid #f1f5f9;
+            background: white;
             text-align: right;
             width: 100%;
             padding: 1.1rem;
             border-radius: 1rem;
-            font-weight: 600;
-            color: #cbd5e1;
+            font-weight: 700;
+            color: #1e293b;
             cursor: pointer;
         }
         .btn-opt:hover {
-            border-color: #7c3aed;
-            background: rgba(124, 58, 237, 0.1);
+            border-color: #3b82f6;
+            background: #eff6ff;
             transform: translateX(-4px);
-            color: #e2e8f0;
         }
         .advice-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 1.5rem;
             padding: 1.5rem;
             transition: all 0.3s ease;
         }
         .advice-card:hover {
-            border-color: #7c3aed;
-            box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.2);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.1);
         }
         .fade-in {
             animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -58,13 +57,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .progress-fill {
-            background: linear-gradient(90deg, #7c3aed, #a78bfa);
-            box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
         }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0f0c1a; }
-        ::-webkit-scrollbar-thumb { background: #4b3a6e; border-radius: 10px; }
     </style>
 </head>
 <body class="antialiased">
@@ -74,27 +69,27 @@
 
         <!-- Intro Section -->
         <div id="intro" class="text-center py-10 fade-in">
-            <h2 class="text-3xl md:text-4xl font-black text-white mb-3 leading-tight">التحليل النفسي <span class="text-purple-400">لآثار الماضي</span></h2>
-            <p class="text-lg text-slate-400 mb-6 max-w-xl mx-auto italic">"وعيك بجذورك هو الخطوة الأولى لبناء مستقبل عائلي أكثر أماناً."</p>
-            <div class="bg-purple-900/20 border border-purple-800/30 text-purple-100 text-sm rounded-2xl p-5 max-w-lg mx-auto mb-8 text-right leading-relaxed">
+            <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-3 leading-tight">التحليل النفسي <span class="text-blue-600">لآثار الماضي</span></h2>
+            <p class="text-lg text-slate-500 mb-6 max-w-xl mx-auto italic">"وعيك بجذورك هو الخطوة الأولى لبناء مستقبل عائلي أكثر أماناً."</p>
+            <div class="bg-blue-50 border border-blue-100 text-blue-800 text-sm rounded-2xl p-5 max-w-lg mx-auto mb-8 text-right leading-relaxed">
                 <p class="font-bold mb-1">الخلفية العلمية</p>
                 <p>يستند هذا المقياس إلى نموذج تجارب الطفولة المعاكسة (Felitti et al., 1998)، ونظرية التعلق (Bowlby, 1969)، والعلاج المعرفي السلوكي. الأداة للمسح الأولي فقط، وليست تشخيصاً. إذا كانت النتائج تؤثر على حياتك اليومية، يُنصح باستشارة مختص.</p>
             </div>
-            <button onclick="startTest()" class="bg-purple-600 hover:bg-purple-500 text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-purple-900/30 active:scale-95 transition-all">ابدأ رحلة الاستكشاف</button>
-            <p class="text-xs text-slate-600 mt-5">لن تُجمع بياناتك. أنت وحدك ترى النتيجة.</p>
+            <button onclick="startTest()" class="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-blue-200 active:scale-95 transition-all">ابدأ رحلة الاستكشاف</button>
+            <p class="text-xs text-slate-400 mt-5">لن تُجمع بياناتك. أنت وحدك ترى النتيجة.</p>
         </div>
 
         <!-- Quiz Container -->
         <div id="quiz" class="hidden fade-in">
             <div class="flex items-center justify-between mb-10">
-                <span class="font-bold text-purple-300 bg-purple-900/20 px-4 py-2 rounded-xl text-sm">المرحلة: استكشاف الذاكرة</span>
-                <span id="progressNum" class="text-2xl font-black text-slate-600">01 / 17</span>
+                <span class="font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-xl text-sm">المرحلة: استكشاف الذاكرة</span>
+                <span id="progressNum" class="text-2xl font-black text-slate-300">01 / 17</span>
             </div>
-            <h3 id="questionText" class="text-2xl font-bold text-white mb-10 leading-relaxed min-h-[100px]"></h3>
+            <h3 id="questionText" class="text-2xl font-bold text-slate-800 mb-10 leading-relaxed min-h-[100px]"></h3>
             <div id="options" class="space-y-3"></div>
-            <div class="mt-10 pt-6 border-t border-white/5 flex justify-between items-center">
-                <button id="prevBtn" onclick="goBack()" class="text-slate-600 font-bold hover:text-slate-400 transition">السابق</button>
-                <div class="w-48 bg-white/5 h-1.5 rounded-full overflow-hidden">
+            <div class="mt-10 pt-6 border-t border-slate-100 flex justify-between items-center">
+                <button id="prevBtn" onclick="goBack()" class="text-slate-300 font-bold hover:text-slate-600 transition">السابق</button>
+                <div class="w-48 bg-slate-100 h-1.5 rounded-full overflow-hidden">
                     <div id="pBar" class="progress-fill h-full transition-all duration-700" style="width: 0%"></div>
                 </div>
             </div>
@@ -103,51 +98,51 @@
         <!-- Result Screen -->
         <div id="result" class="hidden fade-in">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-black text-white mb-2">التقرير النهائي</h2>
+                <h2 class="text-3xl font-black text-slate-800 mb-2">التقرير النهائي</h2>
                 <p class="text-slate-400">تحليل أولي للميول والأنماط النفسية بناءً على تاريخ النمو</p>
             </div>
 
             <div id="symptomList" class="space-y-6 mb-8"></div>
 
             <!-- Resource / Resilience indicator -->
-            <div id="resilienceBox" class="hidden bg-emerald-900/10 border border-emerald-800/20 rounded-2xl p-5 mb-8 text-sm text-emerald-100">
-                <h5 class="font-black text-emerald-300 mb-2 flex items-center"><span class="w-2 h-6 bg-emerald-400 ml-2 rounded-full"></span> مواردك النفسية</h5>
+            <div id="resilienceBox" class="hidden bg-emerald-50 border border-emerald-100 rounded-2xl p-5 mb-8 text-sm text-emerald-800">
+                <h5 class="font-black text-emerald-700 mb-2 flex items-center"><span class="w-2 h-6 bg-emerald-500 ml-2 rounded-full"></span> مواردك النفسية</h5>
                 <p id="resilienceText"></p>
             </div>
 
             <!-- Consistency indicator -->
-            <div id="consistencyBox" class="bg-white/5 border border-white/5 rounded-2xl p-4 mb-8 text-sm text-slate-300 flex items-center gap-3">
+            <div id="consistencyBox" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-8 text-sm text-slate-600 flex items-center gap-3">
                 <span id="consistencyIcon" class="text-2xl"></span>
                 <span id="consistencyMsg"></span>
             </div>
 
             <!-- Links between high axes -->
-            <div id="linkBox" class="hidden bg-amber-900/10 border border-amber-800/20 rounded-2xl p-4 mb-8 text-sm text-amber-100"></div>
+            <div id="linkBox" class="hidden bg-amber-50 border border-amber-100 rounded-2xl p-4 mb-8 text-sm text-amber-800"></div>
 
-            <div id="confirmResult" class="p-8 bg-white/5 rounded-[2.5rem] text-center mb-10 border border-white/5">
-                <h4 class="text-xl font-bold text-white mb-4">هل تشعر أن النتائج متسقة مع تجربتك؟</h4>
+            <div id="confirmResult" class="p-8 bg-slate-900 rounded-[2.5rem] text-white text-center mb-10 shadow-2xl">
+                <h4 class="text-xl font-bold mb-4">هل تشعر أن النتائج متسقة مع تجربتك؟</h4>
                 <div class="flex flex-col md:flex-row justify-center gap-3">
-                    <button onclick="revealAdvice()" class="bg-purple-600 px-8 py-3 rounded-xl font-bold text-white hover:bg-purple-500 transition">نعم، دقيق جداً</button>
-                    <button onclick="revealAdvice()" class="bg-white/5 px-8 py-3 rounded-xl font-bold text-slate-300 hover:bg-white/10 transition border border-white/10">إلى حد ما</button>
+                    <button onclick="revealAdvice()" class="bg-blue-600 px-8 py-3 rounded-xl font-bold text-white hover:bg-blue-500 transition">نعم، دقيق جداً</button>
+                    <button onclick="revealAdvice()" class="bg-slate-800 px-8 py-3 rounded-xl font-bold text-slate-300 hover:bg-slate-700 transition border border-slate-700">إلى حد ما</button>
                 </div>
             </div>
 
             <!-- Advice Section -->
             <div id="adviceSec" class="hidden fade-in space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="advice-card border-purple-800/20 bg-purple-900/10">
-                        <h5 class="font-black text-purple-300 mb-3 flex items-center"><span class="w-2 h-6 bg-purple-500 ml-2 rounded-full"></span> فهم الشعور</h5>
-                        <p id="advUnderstanding" class="text-sm text-slate-300 leading-relaxed"></p>
+                    <div class="advice-card border-blue-100 bg-blue-50/30">
+                        <h5 class="font-black text-blue-700 mb-3 flex items-center"><span class="w-2 h-6 bg-blue-600 ml-2 rounded-full"></span> فهم الشعور</h5>
+                        <p id="advUnderstanding" class="text-sm text-slate-600 leading-relaxed"></p>
                     </div>
-                    <div class="advice-card border-amber-800/20 bg-amber-900/10">
-                        <h5 class="font-black text-amber-300 mb-3 flex items-center"><span class="w-2 h-6 bg-amber-500 ml-2 rounded-full"></span> التعامل معه</h5>
-                        <p id="advCoping" class="text-sm text-slate-300 leading-relaxed"></p>
+                    <div class="advice-card border-amber-100 bg-amber-50/30">
+                        <h5 class="font-black text-amber-700 mb-3 flex items-center"><span class="w-2 h-6 bg-amber-500 ml-2 rounded-full"></span> التعامل معه</h5>
+                        <p id="advCoping" class="text-sm text-slate-600 leading-relaxed"></p>
                     </div>
                 </div>
-                <div class="advice-card border-emerald-800/20 bg-emerald-900/10">
-                    <h5 class="font-black text-emerald-300 mb-4 flex items-center text-lg"><span class="w-2 h-8 bg-emerald-500 ml-2 rounded-full"></span> حماية أسرتك (قطع دائرة الألم)</h5>
-                    <div id="advFamily" class="text-sm text-slate-300 leading-relaxed space-y-3"></div>
-                    <div class="mt-6 flex items-center justify-center gap-2 text-emerald-400">
+                <div class="advice-card border-emerald-100 bg-emerald-50/30 col-span-1 md:col-span-2">
+                    <h5 class="font-black text-emerald-700 mb-4 flex items-center text-lg"><span class="w-2 h-8 bg-emerald-600 ml-2 rounded-full"></span> حماية أسرتك (قطع دائرة الألم)</h5>
+                    <div id="advFamily" class="text-sm text-slate-700 leading-relaxed space-y-3"></div>
+                    <div class="mt-6 flex items-center justify-center gap-2 text-emerald-600">
                         <span style="font-size:2rem;">⤵️</span>
                         <span style="font-size:1.5rem; text-decoration: line-through;">⛓️</span>
                         <span class="text-xs font-bold">أنت تقرر أن يتوقف الألم هنا</span>
@@ -155,21 +150,21 @@
                 </div>
 
                 <!-- What Next path -->
-                <div id="whatNextBox" class="advice-card border-indigo-800/20 bg-indigo-900/10 text-sm text-indigo-100 leading-relaxed"></div>
+                <div id="whatNextBox" class="advice-card border-indigo-100 bg-indigo-50/30 text-sm text-indigo-800 leading-relaxed"></div>
 
                 <!-- Optional open question -->
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-sm">
-                    <label class="font-bold text-slate-400 mb-2 block">هل هناك ظرف معاصر يجعل هذه المشاعر أقوى حالياً؟ (اختياري)</label>
-                    <textarea id="openAnswer" rows="2" class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-sm text-slate-200 placeholder-slate-600" placeholder="مثلاً: ضغط عمل، علاقة صعبة..."></textarea>
+                <div class="bg-white border border-slate-200 rounded-2xl p-4 text-sm">
+                    <label class="font-bold text-slate-600 mb-2 block">هل هناك ظرف معاصر يجعل هذه المشاعر أقوى حالياً؟ (اختياري)</label>
+                    <textarea id="openAnswer" rows="2" class="w-full border border-slate-200 rounded-xl p-3 text-sm" placeholder="مثلاً: ضغط عمل، علاقة صعبة..."></textarea>
                 </div>
 
-                <button onclick="location.reload()" class="w-full py-6 text-slate-600 font-bold hover:text-purple-400 transition text-sm italic">إعادة تقييم الرحلة</button>
+                <button onclick="location.reload()" class="w-full py-6 text-slate-400 font-bold hover:text-blue-600 transition text-sm italic">إعادة تقييم الرحلة</button>
             </div>
 
             <!-- How it works toggle -->
             <div class="mt-10 text-center">
-                <button onclick="document.getElementById('howItWorks').classList.toggle('hidden')" class="text-xs text-slate-600 underline hover:text-purple-400">كيف تعمل الأداة؟</button>
-                <div id="howItWorks" class="hidden text-xs text-slate-500 mt-3 leading-relaxed max-w-md mx-auto bg-white/5 p-4 rounded-2xl border border-white/5">
+                <button onclick="document.getElementById('howItWorks').classList.toggle('hidden')" class="text-xs text-slate-400 underline hover:text-blue-500">كيف تعمل الأداة؟</button>
+                <div id="howItWorks" class="hidden text-xs text-slate-500 mt-3 leading-relaxed max-w-md mx-auto bg-slate-50 p-4 rounded-2xl">
                     <p>تُجاب الأسئلة على مقياس (دائماً=4 إلى أبداً=0). بعض الأسئلة الإيجابية تُعكس. تُجمع الدرجات لكل محور (الأقصى 12). التصنيف (مستقر/متأثر/مرتفع) يعتمد على إجاباتك في هذه اللحظة وليس على معايير تشخيصية.</p>
                 </div>
             </div>
@@ -277,14 +272,14 @@
             const p = (res.score / 12) * 100;
             const lvl = p < 35 ? 'مستقر' : p < 70 ? 'متأثر' : 'مرتفع الأثر';
             const clr = p < 35 ? 'bg-emerald-500' : p < 70 ? 'bg-amber-500' : 'bg-rose-500';
-            const textClr = p < 35 ? 'text-emerald-400' : p < 70 ? 'text-amber-400' : 'text-rose-400';
+            const textClr = p < 35 ? 'text-emerald-600' : p < 70 ? 'text-amber-600' : 'text-rose-600';
             return `
-                <div class="fade-in bg-white/[0.02] rounded-2xl p-5">
+                <div class="fade-in bg-white rounded-2xl p-5 border border-slate-100">
                     <div class="flex justify-between mb-2 font-bold text-sm">
-                        <span class="text-white">${res.name}</span>
+                        <span class="text-slate-800">${res.name}</span>
                         <span class="${textClr}">${lvl} · ${p.toFixed(0)}%</span>
                     </div>
-                    <div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+                    <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
                         <div class="h-full ${clr} transition-all duration-1000" style="width: ${p}%"></div>
                     </div>
                     <p class="text-xs text-slate-500 mt-2">${res.info}</p>
