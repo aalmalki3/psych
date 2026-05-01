@@ -16,17 +16,14 @@
             --brand-ice: #cde0e5;
             --brand-slate: #8f9ea6;
             --brand-charcoal: #333333;
-            
             --bg-page: #fdfcfb;
             --surface: rgba(255, 255, 255, 0.85);
             --text-main: var(--brand-charcoal);
             --text-muted: #5c6b73;
             --border-light: rgba(205, 224, 229, 0.5);
-            
             --radius-sm: 8px;
             --radius-md: 16px;
             --radius-lg: 24px;
-            
             --shadow-ops: 0 4px 0px var(--brand-slate);
             --shadow-card: 0 4px 20px rgba(143, 158, 166, 0.1);
         }
@@ -46,11 +43,7 @@
         }
 
         .ambient-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.6;
+            position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.6;
             animation: float 20s infinite alternate ease-in-out;
         }
         .orb-1 { width: 450px; height: 450px; background-color: var(--brand-peach); top: -100px; right: -100px; }
@@ -78,7 +71,8 @@
 
         .data-ribbon {
             display: flex; gap: 2rem; background: rgba(255,255,255,0.6); border: 1px solid var(--border-light);
-            padding: 0.75rem 2rem; border-radius: var(--radius-sm); margin-bottom: 3rem; font-size: 0.9rem; font-weight: 600; color: var(--brand-slate); backdrop-filter: blur(5px);
+            padding: 0.75rem 2rem; border-radius: var(--radius-sm); margin-bottom: 3rem; font-size: 0.9rem;
+            font-weight: 600; color: var(--brand-slate); backdrop-filter: blur(5px);
             flex-wrap: wrap; justify-content: center;
         }
         .data-ribbon div { display: flex; align-items: center; gap: 0.5rem; }
@@ -87,11 +81,6 @@
         .hero { text-align: center; margin-bottom: 2.5rem; }
         .hero h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; color: var(--brand-charcoal); margin-bottom: 0.75rem; }
         .hero p { font-size: clamp(1rem, 3vw, 1.2rem); color: var(--text-muted); max-width: 650px; margin: 0 auto; font-weight: 500; }
-
-        .section { margin-bottom: 2rem; }
-        .section-header { margin-bottom: 1.5rem; padding-right: 1rem; border-right: 4px solid var(--brand-slate); }
-        .section-header h2 { font-size: 1.7rem; font-weight: 800; color: var(--brand-charcoal); }
-        .section-header p { font-size: 1rem; color: var(--text-muted); }
 
         .card {
             background: var(--surface); backdrop-filter: blur(8px); border: 1px solid var(--border-light);
@@ -104,35 +93,24 @@
         .quiz-option {
             display: block; width: 100%; padding: 1.2rem 1.5rem; margin: 0.75rem 0;
             background: white; border: 2px solid var(--border-light); border-radius: var(--radius-md);
-            font-size: 1.15rem; font-weight: 600; color: var(--brand-charcoal); text-align: right;
+            font-size: 1.15rem; font-weight: 600; color: var(--brand-charcoal);
             cursor: pointer; transition: all 0.2s; font-family: inherit;
         }
-        .quiz-option:hover {
-            border-color: var(--brand-slate); background: var(--brand-peach); transform: translateX(-4px);
-        }
+        .quiz-option:hover { border-color: var(--brand-slate); background: var(--brand-peach); }
 
-        .progress-bar {
-            height: 6px; background: #e2e8f0; border-radius: 10px; overflow: hidden;
-            margin: 1.5rem 0; width: 100%;
-        }
-        .progress-fill {
-            height: 100%; background: linear-gradient(90deg, var(--brand-slate), var(--brand-charcoal));
-            transition: width 0.5s ease;
-        }
+        /* Directional alignment */
+        [dir="rtl"] .quiz-option { text-align: right; }
+        [dir="ltr"] .quiz-option { text-align: left; }
+        [dir="rtl"] .quiz-option:hover { transform: translateX(-4px); }
+        [dir="ltr"] .quiz-option:hover { transform: translateX(4px); }
 
-        .result-item {
-            margin-bottom: 1.5rem;
-        }
-        .result-bar {
-            height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden; margin-top: 0.25rem;
-        }
-        .result-fill {
-            height: 100%; border-radius: 10px; transition: width 1s ease;
-        }
+        .progress-bar { height: 6px; background: #e2e8f0; border-radius: 10px; overflow: hidden; margin: 1.5rem 0; width: 100%; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--brand-slate), var(--brand-charcoal)); transition: width 0.5s ease; }
 
-        .advice-grid {
-            display: grid; grid-template-columns: 1fr; gap: 1.5rem;
-        }
+        .result-bar { height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden; margin-top: 0.25rem; }
+        .result-fill { height: 100%; border-radius: 10px; transition: width 1s ease; }
+
+        .advice-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
         @media (min-width: 640px) { .advice-grid { grid-template-columns: 1fr 1fr; } }
 
         .btn {
@@ -143,13 +121,9 @@
         .btn:hover { background-color: var(--brand-charcoal); }
         .btn-primary { background-color: var(--brand-charcoal); }
         .btn-secondary { background: transparent; color: var(--brand-slate); border: 2px solid var(--brand-slate); }
-        .btn-block { width: 100%; justify-content: center; }
-
-        .badge {
-            display: inline-block; padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
-        }
 
         textarea, input { font-family: inherit; font-size: 1rem; }
+
         @media (max-width: 600px) {
             header { flex-direction: column-reverse; gap: 0.75rem; }
             .data-ribbon { flex-direction: column; gap: 0.75rem; }
@@ -158,303 +132,533 @@
 </head>
 <body>
 
-    <div class="ambient-orb orb-1"></div>
-    <div class="ambient-orb orb-2"></div>
+<div class="ambient-orb orb-1"></div>
+<div class="ambient-orb orb-2"></div>
 
-    <div class="container">
-        <header>
-            <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">English 🌐</button>
-            <div class="logo">شفق <span>SHFQ</span></div>
-        </header>
+<div class="container">
+    <header>
+        <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">English 🌐</button>
+        <div class="logo">شفق <span>SHFQ</span></div>
+    </header>
 
-        <div class="data-ribbon">
-            <div><div class="status-dot"></div> <span id="envText">أداة تقييم ذاتي | للاستكشاف الأولي فقط</span></div>
-            <div>🧠 <span id="trackStatusText">مقياس الجذور النفسية</span></div>
-        </div>
-
-        <main>
-            <div class="hero" id="intro">
-                <h1 id="heroTitle">التحليل النفسي لآثار الماضي</h1>
-                <p id="heroDesc">"وعيك بجذورك هو الخطوة الأولى لبناء مستقبل عائلي أكثر أماناً."</p>
-                <div style="background: rgba(255,255,255,0.7); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem; margin: 2rem 0; text-align: right; font-size: 1rem; color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto;">
-                    <p style="font-weight:700; color: var(--brand-charcoal);">الخلفية العلمية</p>
-                    <p>يستند هذا المقياس إلى نموذج تجارب الطفولة المعاكسة (Felitti et al., 1998)، ونظرية التعلق (Bowlby, 1969)، والعلاج المعرفي السلوكي. الأداة للمسح الأولي فقط، وليست تشخيصاً طبياً. إذا كانت النتائج تؤثر على حياتك اليومية، يُنصح باستشارة مختص. لن تُجمع بياناتك، أنت وحدك ترى النتيجة.</p>
-                </div>
-                <button class="btn btn-primary" onclick="startTest()" style="font-size:1.2rem; padding:1rem 3rem;">ابدأ رحلة الاستكشاف</button>
-            </div>
-
-            <!-- Quiz Container -->
-            <div id="quiz" style="display: none;">
-                <div class="card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-                        <span style="font-weight:700; color: var(--brand-slate); background: rgba(205,224,229,0.2); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-size:0.9rem;">استكشاف الذاكرة</span>
-                        <span id="progressNum" style="font-weight:800; color: var(--brand-slate); font-size:1.2rem;">01 / 17</span>
-                    </div>
-                    <h3 id="questionText" style="font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight:700; margin-bottom: 2rem; color: var(--brand-charcoal); min-height: 80px;"></h3>
-                    <div id="options" style="margin-bottom: 2rem;"></div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
-                        <button id="prevBtn" onclick="goBack()" style="background:none; border:none; font-family:inherit; font-weight:700; color: var(--brand-slate); cursor:pointer; font-size:1rem;">السابق</button>
-                        <div class="progress-bar" style="flex:1; margin:0 1rem;">
-                            <div id="pBar" class="progress-fill" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Result Screen -->
-            <div id="result" style="display: none;">
-                <div class="hero" style="margin-bottom:2rem;">
-                    <h2 style="font-size:2rem; font-weight:800;">التقرير النهائي</h2>
-                    <p style="color:var(--text-muted);">تحليل أولي للميول والأنماط النفسية</p>
-                </div>
-
-                <div id="symptomList" class="card" style="gap:1.5rem;"></div>
-
-                <div id="resilienceBox" class="card" style="display:none; background: #f0fdf4; border-bottom-color: #10b981;">
-                    <h5 style="font-weight:800; color:#065f46;">🌱 مواردك النفسية</h5>
-                    <p id="resilienceText" style="color:#065f46; font-size:0.95rem;"></p>
-                </div>
-
-                <div id="consistencyBox" class="card" style="background:#f8fafc;">
-                    <div style="display:flex; align-items:center; gap:0.75rem;">
-                        <span id="consistencyIcon" style="font-size:1.8rem;"></span>
-                        <span id="consistencyMsg" style="color:var(--text-muted); font-size:1rem;"></span>
-                    </div>
-                </div>
-
-                <div id="linkBox" class="card" style="display:none; background:#fffbeb; border-bottom-color:#f59e0b;">
-                    <p style="color:#92400e; font-size:0.95rem;"></p>
-                </div>
-
-                <div id="confirmResult" class="card" style="background: var(--brand-charcoal); color: white; border-bottom-color: var(--brand-slate); text-align:center;">
-                    <h4 style="font-weight:700; font-size:1.3rem; margin-bottom:1rem;">هل تشعر أن النتائج متسقة مع تجربتك؟</h4>
-                    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-                        <button class="btn" onclick="revealAdvice()" style="background:white; color:var(--brand-charcoal);">نعم، دقيق جداً</button>
-                        <button class="btn btn-secondary" onclick="revealAdvice()">إلى حد ما</button>
-                    </div>
-                </div>
-
-                <!-- Advice Section -->
-                <div id="adviceSec" style="display: none;">
-                    <div class="advice-grid">
-                        <div class="card" style="background:#eff6ff; border-bottom-color: #3b82f6;">
-                            <h5 style="color:#1e3a8a; font-weight:800;">🧠 فهم الشعور</h5>
-                            <p id="advUnderstanding" style="color:#1e40af;"></p>
-                        </div>
-                        <div class="card" style="background:#fffbeb; border-bottom-color: #f59e0b;">
-                            <h5 style="color:#92400e; font-weight:800;">🛠️ التعامل معه</h5>
-                            <p id="advCoping" style="color:#92400e;"></p>
-                        </div>
-                    </div>
-                    <div class="card" style="background:#f0fdf4; border-bottom-color: #10b981;">
-                        <h5 style="color:#065f46; font-weight:800;">🛡️ حماية أسرتك (قطع دائرة الألم)</h5>
-                        <div id="advFamily" style="color:#065f46;"></div>
-                        <div style="text-align:center; margin-top:1rem;">⤵️ <span style="text-decoration:line-through; font-size:1.5rem;">⛓️</span> <span style="font-weight:700;">أنت تقرر أن يتوقف الألم هنا</span></div>
-                    </div>
-
-                    <div class="card" style="background:#eef2ff; border-bottom-color: #6366f1;">
-                        <h5 style="color:#3730a3; font-weight:800;">📋 ماذا أفعل الآن؟</h5>
-                        <div id="whatNextBox" style="color:#3730a3;"></div>
-                    </div>
-
-                    <div class="card">
-                        <label style="font-weight:700; color:var(--brand-charcoal);">هل هناك ظرف معاصر يجعل هذه المشاعر أقوى حالياً؟ (اختياري)</label>
-                        <textarea id="openAnswer" rows="2" style="width:100%; border:1px solid var(--border-light); border-radius:var(--radius-sm); padding:0.75rem; margin-top:0.5rem;" placeholder="مثلاً: ضغط عمل، علاقة صعبة..."></textarea>
-                    </div>
-
-                    <div style="text-align:center; margin:2rem 0;">
-                        <button onclick="location.reload()" class="btn btn-secondary">إعادة تقييم الرحلة</button>
-                        <button onclick="document.getElementById('howItWorks').style.display='block'" class="btn btn-secondary" style="margin-right:0.5rem;">كيف تعمل الأداة؟</button>
-                    </div>
-                    <div id="howItWorks" style="display:none; background:white; border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1rem; margin-top:1rem; color:var(--text-muted); font-size:0.9rem;">
-                        <p>تُجاب الأسئلة على مقياس (دائماً=4 إلى أبداً=0). بعض الأسئلة الإيجابية تُعكس. تُجمع الدرجات لكل محور (الأقصى 12). التصنيف (مستقر/متأثر/مرتفع) يعتمد على إجاباتك في هذه اللحظة وليس على معايير تشخيصية.</p>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <div class="data-ribbon">
+        <div><div class="status-dot"></div> <span id="envText">أداة تقييم ذاتي | للاستكشاف الأولي فقط</span></div>
+        <div>🧠 <span id="trackStatusText">مقياس الجذور النفسية</span></div>
     </div>
 
-    <script>
-        let curStep = 0;
-        let answers = [];
+    <main>
+        <!-- Intro Screen -->
+        <div class="hero" id="intro">
+            <h1 id="heroTitle">التحليل النفسي لآثار الماضي</h1>
+            <p id="heroDesc">"وعيك بجذورك هو الخطوة الأولى لبناء مستقبل عائلي أكثر أماناً."</p>
+            <div style="background: rgba(255,255,255,0.7); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem; margin: 2rem auto; max-width: 600px; color: var(--text-muted);" id="scientificBox">
+                <p style="font-weight:700; color: var(--brand-charcoal);" id="scientificTitle">الخلفية العلمية</p>
+                <p id="scientificText">يستند هذا المقياس إلى نموذج تجارب الطفولة المعاكسة (Felitti et al., 1998)، ونظرية التعلق (Bowlby, 1969)، والعلاج المعرفي السلوكي. الأداة للمسح الأولي فقط، وليست تشخيصاً طبياً. إذا كانت النتائج تؤثر على حياتك اليومية، يُنصح باستشارة مختص. لن تُجمع بياناتك، أنت وحدك ترى النتيجة.</p>
+            </div>
+            <button class="btn btn-primary" onclick="startTest()" style="font-size:1.2rem; padding:1rem 3rem;" id="startBtn">ابدأ رحلة الاستكشاف</button>
+        </div>
 
-        const categories = [
-            { id: 0, name: "القلق والتوتر", info: "المخاوف المستقبلية والبحث عن الأمان." },
-            { id: 1, name: "الرهاب الاجتماعي", info: "الخوف من النقد وتجنب الظهور." },
-            { id: 2, name: "تقدير الذات والاكتئاب", info: "الشعور بالنقص وفقدان الحافز." },
-            { id: 3, name: "آثار الصدمات (PTSD)", info: "ذكريات الماضي التي تقتحم الحاضر." },
-            { id: 4, name: "الاحتراق النفسي", info: "تحمل أعباء عاطفية تفوق الطاقة." },
-            { id: 5, name: "موارد المرونة", info: "مؤشر إيجابي على وجود مساحات أمان ودعم." }
+        <!-- Quiz Container -->
+        <div id="quiz" style="display: none;">
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <span style="font-weight:700; color: var(--brand-slate); background: rgba(205,224,229,0.2); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-size:0.9rem;" id="stageLabel">استكشاف الذاكرة</span>
+                    <span id="progressNum" style="font-weight:800; color: var(--brand-slate); font-size:1.2rem;">01 / 17</span>
+                </div>
+                <h3 id="questionText" style="font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight:700; margin-bottom: 2rem; color: var(--brand-charcoal); min-height: 80px;"></h3>
+                <div id="options" style="margin-bottom: 2rem;"></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                    <button id="prevBtn" onclick="goBack()" style="background:none; border:none; font-family:inherit; font-weight:700; color: var(--brand-slate); cursor:pointer; font-size:1rem;">السابق</button>
+                    <div class="progress-bar" style="flex:1; margin:0 1rem;">
+                        <div id="pBar" class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result" style="display: none;">
+            <div class="hero" style="margin-bottom:2rem;">
+                <h2 style="font-size:2rem; font-weight:800;" id="resultTitle">التقرير النهائي</h2>
+                <p style="color:var(--text-muted);" id="resultDesc">تحليل أولي للميول والأنماط النفسية</p>
+            </div>
+
+            <div id="symptomList" class="card" style="gap:1.5rem;"></div>
+
+            <div id="resilienceBox" class="card" style="display:none; background: #f0fdf4; border-bottom-color: #10b981;">
+                <h5 style="font-weight:800; color:#065f46;" id="resilienceTitle">🌱 مواردك النفسية</h5>
+                <p id="resilienceText" style="color:#065f46; font-size:0.95rem;"></p>
+            </div>
+
+            <div id="consistencyBox" class="card" style="background:#f8fafc;">
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                    <span id="consistencyIcon" style="font-size:1.8rem;"></span>
+                    <span id="consistencyMsg" style="color:var(--text-muted); font-size:1rem;"></span>
+                </div>
+            </div>
+
+            <div id="linkBox" class="card" style="display:none; background:#fffbeb; border-bottom-color:#f59e0b;">
+                <p style="color:#92400e; font-size:0.95rem;" id="linkText"></p>
+            </div>
+
+            <div id="confirmResult" class="card" style="background: var(--brand-charcoal); color: white; border-bottom-color: var(--brand-slate); text-align:center;">
+                <h4 style="font-weight:700; font-size:1.3rem; margin-bottom:1rem;" id="confirmTitle">هل تشعر أن النتائج متسقة مع تجربتك؟</h4>
+                <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                    <button class="btn" onclick="revealAdvice()" style="background:white; color:var(--brand-charcoal);" id="confirmYes">نعم، دقيق جداً</button>
+                    <button class="btn btn-secondary" onclick="revealAdvice()" id="confirmSomewhat">إلى حد ما</button>
+                </div>
+            </div>
+
+            <!-- Advice Section -->
+            <div id="adviceSec" style="display: none;">
+                <div class="advice-grid">
+                    <div class="card" style="background:#eff6ff; border-bottom-color: #3b82f6;">
+                        <h5 style="color:#1e3a8a; font-weight:800;" id="understandTitle">🧠 فهم الشعور</h5>
+                        <p id="advUnderstanding" style="color:#1e40af;"></p>
+                    </div>
+                    <div class="card" style="background:#fffbeb; border-bottom-color: #f59e0b;">
+                        <h5 style="color:#92400e; font-weight:800;" id="copeTitle">🛠️ التعامل معه</h5>
+                        <p id="advCoping" style="color:#92400e;"></p>
+                    </div>
+                </div>
+                <div class="card" style="background:#f0fdf4; border-bottom-color: #10b981;">
+                    <h5 style="color:#065f46; font-weight:800;" id="familyTitle">🛡️ حماية أسرتك (قطع دائرة الألم)</h5>
+                    <div id="advFamily" style="color:#065f46;"></div>
+                    <div style="text-align:center; margin-top:1rem;">⤵️ <span style="text-decoration:line-through; font-size:1.5rem;">⛓️</span> <span id="breakChain" style="font-weight:700;">أنت تقرر أن يتوقف الألم هنا</span></div>
+                </div>
+
+                <div class="card" style="background:#eef2ff; border-bottom-color: #6366f1;">
+                    <h5 style="color:#3730a3; font-weight:800;" id="whatNextTitle">📋 ماذا أفعل الآن؟</h5>
+                    <div id="whatNextBox" style="color:#3730a3;"></div>
+                </div>
+
+                <div class="card">
+                    <label style="font-weight:700; color:var(--brand-charcoal);" id="openQ">هل هناك ظرف معاصر يجعل هذه المشاعر أقوى حالياً؟ (اختياري)</label>
+                    <textarea id="openAnswer" rows="2" style="width:100%; border:1px solid var(--border-light); border-radius:var(--radius-sm); padding:0.75rem; margin-top:0.5rem;" placeholder="مثلاً: ضغط عمل، علاقة صعبة..."></textarea>
+                </div>
+
+                <div style="text-align:center; margin:2rem 0;">
+                    <button onclick="location.reload()" class="btn btn-secondary" id="restartBtn">إعادة تقييم الرحلة</button>
+                    <button onclick="toggleHowItWorks()" class="btn btn-secondary" style="margin-right:0.5rem;" id="howBtn">كيف تعمل الأداة؟</button>
+                </div>
+                <div id="howItWorks" style="display:none; background:white; border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1rem; margin-top:1rem; color:var(--text-muted); font-size:0.9rem;">
+                    <p id="howText">تُجاب الأسئلة على مقياس (دائماً=4 إلى أبداً=0). بعض الأسئلة الإيجابية تُعكس. تُجمع الدرجات لكل محور (الأقصى 12). التصنيف (مستقر/متأثر/مرتفع) يعتمد على إجاباتك في هذه اللحظة وليس على معايير تشخيصية.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    // ==================== TRANSLATION DATA ====================
+    const translations = {
+        ar: {
+            langBtn: "English 🌐",
+            envText: "أداة تقييم ذاتي | للاستكشاف الأولي فقط",
+            trackStatusText: "مقياس الجذور النفسية",
+            heroTitle: "التحليل النفسي لآثار الماضي",
+            heroDesc: "\"وعيك بجذورك هو الخطوة الأولى لبناء مستقبل عائلي أكثر أماناً.\"",
+            scientificTitle: "الخلفية العلمية",
+            scientificText: "يستند هذا المقياس إلى نموذج تجارب الطفولة المعاكسة (Felitti et al., 1998)، ونظرية التعلق (Bowlby, 1969)، والعلاج المعرفي السلوكي. الأداة للمسح الأولي فقط، وليست تشخيصاً طبياً. إذا كانت النتائج تؤثر على حياتك اليومية، يُنصح باستشارة مختص. لن تُجمع بياناتك، أنت وحدك ترى النتيجة.",
+            startBtn: "ابدأ رحلة الاستكشاف",
+            stageLabel: "استكشاف الذاكرة",
+            prevBtn: "السابق",
+            resultTitle: "التقرير النهائي",
+            resultDesc: "تحليل أولي للميول والأنماط النفسية",
+            resilienceTitle: "🌱 مواردك النفسية",
+            confirmTitle: "هل تشعر أن النتائج متسقة مع تجربتك؟",
+            confirmYes: "نعم، دقيق جداً",
+            confirmSomewhat: "إلى حد ما",
+            understandTitle: "🧠 فهم الشعور",
+            copeTitle: "🛠️ التعامل معه",
+            familyTitle: "🛡️ حماية أسرتك (قطع دائرة الألم)",
+            breakChain: "أنت تقرر أن يتوقف الألم هنا",
+            whatNextTitle: "📋 ماذا أفعل الآن؟",
+            openQ: "هل هناك ظرف معاصر يجعل هذه المشاعر أقوى حالياً؟ (اختياري)",
+            openPlaceholder: "مثلاً: ضغط عمل، علاقة صعبة...",
+            restartBtn: "إعادة تقييم الرحلة",
+            howBtn: "كيف تعمل الأداة؟",
+            howText: "تُجاب الأسئلة على مقياس (دائماً=4 إلى أبداً=0). بعض الأسئلة الإيجابية تُعكس. تُجمع الدرجات لكل محور (الأقصى 12). التصنيف (مستقر/متأثر/مرتفع) يعتمد على إجاباتك في هذه اللحظة وليس على معايير تشخيصية.",
+            options: ["دائماً", "غالباً", "أحياناً", "نادراً", "أبداً"],
+            levels: ["مستقر", "متأثر", "مرتفع الأثر"],
+            consistencyMsgs: [
+                "إجاباتك متناسقة، مما يعكس وضوحاً في مشاعرك.",
+                "بعض التناقض طبيعي وقد يدل على مشاعر معقدة.",
+                "تباين كبير في الإجابات. قد تكون في حالة ضبابية عاطفية."
+            ],
+            linkMsgs: {
+                anxiety_social: "ارتفاع القلق والرهاب الاجتماعي معاً قد يشير إلى حساسية مرتفعة للتقييم الاجتماعي، غالباً من تجارب نقد مبكرة.",
+                esteem_burnout: "ارتفاع تقدير الذات المتدني والاحتراق النفسي معاً شائع لدى من حملوا مسؤوليات مبكرة وربطوا قيمتهم بالعطاء."
+            },
+            resilienceHigh: "لديك موارد نفسية جيدة",
+            resilienceLow: "مواردك النفسية منخفضة نسبياً",
+            resilienceHighExtra: "حتى في وجود صعوبات، هناك مصادر دعم وأمان تساعدك على التعافي.",
+            resilienceLowExtra: "قد تكون تحملت الكثير وحدك. البحث عن مساحة دعم جديدة خطوة شجاعة.",
+            whatNextLow: "<strong>أنت في حالة وعي جيدة.</strong> حافظ على ممارساتك الصحية، ويمكنك تعزيز مناعتك النفسية بتمارين الامتنان والتأمل القصير.",
+            whatNextMid: "<strong>هناك بعض الأنماط التي قد تستنزف طاقتك.</strong> جرب تطبيق النصائح أعلاه لمدة أسبوعين. إذا تحسنت، فهذا مؤشر إيجابي. وإن استمرت، قد يكون من المفيد التحدث مع استشاري نفسي مرة واحدة على الأقل.",
+            whatNextHigh: "<strong>الأنماط الظاهرة لديك قوية التأثير.</strong> هذا لا يعني أنك \"مكسور\"، بل أن دفاعاتك القديمة لا تزال تحميك بطريقتها. من الحكمة مراجعة مختص نفسي لمساعدتك على تفكيكها بأمان. هذه الأداة مجرد بداية للمحادثة."
+        },
+        en: {
+            langBtn: "عربي 🌐",
+            envText: "Self-Assessment Tool | For Initial Exploration Only",
+            trackStatusText: "Psychological Depth Scale",
+            heroTitle: "Psychological Analysis of Past Impact",
+            heroDesc: "\"Awareness of your roots is the first step to building a safer family future.\"",
+            scientificTitle: "Scientific Background",
+            scientificText: "This scale is based on the Adverse Childhood Experiences model (Felitti et al., 1998), Attachment Theory (Bowlby, 1969), and Cognitive Behavioral Therapy. It is for preliminary screening only and is not a medical diagnosis. If results affect your daily life, consider consulting a professional. Your data is not collected; only you see the result.",
+            startBtn: "Begin the Exploration Journey",
+            stageLabel: "Memory Exploration",
+            prevBtn: "Previous",
+            resultTitle: "Final Report",
+            resultDesc: "Preliminary analysis of psychological patterns",
+            resilienceTitle: "🌱 Your Psychological Resources",
+            confirmTitle: "Do you feel these results reflect your experience?",
+            confirmYes: "Yes, very accurate",
+            confirmSomewhat: "Somewhat",
+            understandTitle: "🧠 Understanding the Feeling",
+            copeTitle: "🛠️ Coping with It",
+            familyTitle: "🛡️ Protecting Your Family (Breaking the Cycle)",
+            breakChain: "You decide that the pain stops here",
+            whatNextTitle: "📋 What Should I Do Now?",
+            openQ: "Is there a current circumstance making these feelings stronger? (Optional)",
+            openPlaceholder: "e.g., work pressure, difficult relationship...",
+            restartBtn: "Restart the Journey",
+            howBtn: "How does it work?",
+            howText: "Questions are answered on a scale (Always=4 to Never=0). Some positive questions are reversed. Scores are summed for each domain (max 12). Classification (Stable/Impacted/Highly Affected) is based on your current responses, not clinical norms.",
+            options: ["Always", "Often", "Sometimes", "Rarely", "Never"],
+            levels: ["Stable", "Impacted", "Highly Affected"],
+            consistencyMsgs: [
+                "Your responses are consistent, reflecting emotional clarity.",
+                "Some inconsistency is normal and may indicate complex feelings.",
+                "Significant variation in responses. You may be in an emotionally foggy state."
+            ],
+            linkMsgs: {
+                anxiety_social: "Elevated anxiety and social phobia together may indicate heightened sensitivity to social evaluation, often from early criticism.",
+                esteem_burnout: "Low self-esteem combined with burnout is common among those who took on early responsibilities and tied their worth to giving."
+            },
+            resilienceHigh: "You have good psychological resources",
+            resilienceLow: "Your psychological resources are relatively low",
+            resilienceHighExtra: "Even with difficulties, there are sources of support and safety that help you recover.",
+            resilienceLowExtra: "You may have carried a lot alone. Seeking a new support space is a brave step.",
+            whatNextLow: "<strong>You are in a good state of awareness.</strong> Maintain your healthy practices, and you can strengthen your psychological immunity with gratitude exercises and brief meditation.",
+            whatNextMid: "<strong>Some patterns may drain your energy.</strong> Try applying the advice above for two weeks. If you improve, that's a positive sign. If it persists, consider speaking with a counselor at least once.",
+            whatNextHigh: "<strong>The patterns shown are strongly impactful.</strong> This does not mean you are \"broken\", but rather that your old defenses are still protecting you in their own way. It is wise to see a mental health professional to safely untangle them. This tool is just the beginning of the conversation."
+        }
+    };
+
+    // ==================== DATA SETS ====================
+    const questionsAR = [
+        { cat: 0, q: "هل شعرت في طفولتك أنك مضطر لتوقع الأسوأ دائماً؟", inv: false },
+        { cat: 1, q: "هل كان تعرضك للنقد أمام الآخرين يسبب لك ألماً شديداً؟", inv: false },
+        { cat: 2, q: "هل تشعر حالياً أن قيمتك تعتمد على مدى إرضائك للآخرين؟", inv: false },
+        { cat: 3, q: "هل هناك أحداث قديمة تجعل عقلك يتجمد عند تذكرها؟", inv: false },
+        { cat: 4, q: "هل كنت 'المستمع الصبور' لمشاكل الكبار وأنت لا تزال طفلاً؟", inv: false },
+        { cat: 0, q: "هل كنت تجد مكاناً آمناً تماماً تهرب إليه عندما تخاف؟", inv: true },
+        { cat: 3, q: "هل تعاني من توتر جسدي مفاجئ دون سبب واضح؟", inv: false },
+        { cat: 1, q: "هل تتجنب المناسبات الاجتماعية خوفاً من أن يُساء فهمك؟", inv: false },
+        { cat: 4, q: "هل تشعر بالذنب إذا فكرت في راحتك قبل راحة أهلك؟", inv: false },
+        { cat: 2, q: "هل يراودك صوت داخلي يخبرك بأنك 'فاشل' عند الخطأ؟", inv: false },
+        { cat: 0, q: "هل تشعر بالخوف من الهجر أو فقدان من تحب فجأة؟", inv: false },
+        { cat: 1, q: "هل كان مسموحاً لك التعبير عن رأيك بحرية في منزلك؟", inv: true },
+        { cat: 2, q: "هل فقدت الرغبة في خوض تحديات جديدة خوفاً من الإخفاق؟", inv: false },
+        { cat: 3, q: "هل تبالغ في رد فعلك تجاه مواقف بسيطة تشبه الماضي؟", inv: false },
+        { cat: 4, q: "هل تشعر بمسؤولية ثقيلة عن مشاكل لم تكن أنت سببها؟", inv: false },
+        { cat: 5, q: "هل كان هناك شخص بالغ واحد على الأقل في طفولتك يشعرك بالأمان والثقة؟", inv: false },
+        { cat: 5, q: "هل تمارس اليوم نشاطاً أو هواية تساعدك على استعادة توازنك النفسي؟", inv: false }
+    ];
+
+    const questionsEN = [
+        { cat: 0, q: "As a child, did you feel you had to always expect the worst?", inv: false },
+        { cat: 1, q: "Did being criticized in front of others cause you severe pain?", inv: false },
+        { cat: 2, q: "Do you currently feel your worth depends on pleasing others?", inv: false },
+        { cat: 3, q: "Are there old events that make your mind freeze when you remember them?", inv: false },
+        { cat: 4, q: "Were you the 'patient listener' for adults' problems while still a child?", inv: false },
+        { cat: 0, q: "Did you have a completely safe place to escape to when you were scared?", inv: true },
+        { cat: 3, q: "Do you experience sudden physical tension without a clear reason?", inv: false },
+        { cat: 1, q: "Do you avoid social events for fear of being misunderstood?", inv: false },
+        { cat: 4, q: "Do you feel guilty if you prioritize your own comfort over your family's?", inv: false },
+        { cat: 2, q: "Does an inner voice tell you that you're a 'failure' when you make a mistake?", inv: false },
+        { cat: 0, q: "Do you fear abandonment or suddenly losing someone you love?", inv: false },
+        { cat: 1, q: "Were you allowed to freely express your opinion at home?", inv: true },
+        { cat: 2, q: "Have you lost the desire to take on new challenges for fear of failure?", inv: false },
+        { cat: 3, q: "Do you overreact to simple situations that resemble the past?", inv: false },
+        { cat: 4, q: "Do you feel a heavy responsibility for problems you didn't cause?", inv: false },
+        { cat: 5, q: "Was there at least one adult in your childhood who made you feel safe and trusted?", inv: false },
+        { cat: 5, q: "Do you currently practice an activity or hobby that helps you regain psychological balance?", inv: false }
+    ];
+
+    const categoriesAR = [
+        { id: 0, name: "القلق والتوتر", info: "المخاوف المستقبلية والبحث عن الأمان." },
+        { id: 1, name: "الرهاب الاجتماعي", info: "الخوف من النقد وتجنب الظهور." },
+        { id: 2, name: "تقدير الذات والاكتئاب", info: "الشعور بالنقص وفقدان الحافز." },
+        { id: 3, name: "آثار الصدمات (PTSD)", info: "ذكريات الماضي التي تقتحم الحاضر." },
+        { id: 4, name: "الاحتراق النفسي", info: "تحمل أعباء عاطفية تفوق الطاقة." },
+        { id: 5, name: "موارد المرونة", info: "مؤشر إيجابي على وجود مساحات أمان ودعم." }
+    ];
+
+    const categoriesEN = [
+        { id: 0, name: "Anxiety & Stress", info: "Future fears and seeking security." },
+        { id: 1, name: "Social Phobia", info: "Fear of criticism and avoidance of visibility." },
+        { id: 2, name: "Self-Esteem & Depression", info: "Feelings of inadequacy and loss of motivation." },
+        { id: 3, name: "Trauma Effects (PTSD)", info: "Past memories that intrude on the present." },
+        { id: 4, name: "Psychological Burnout", info: "Carrying emotional burdens beyond capacity." },
+        { id: 5, name: "Resilience Resources", info: "Positive indicator of safety and support." }
+    ];
+
+    const adviceDB_AR = {
+        0: {
+            understand: "القلق لديك ليس ضعفاً، بل نظام إنذار نشأ في بيئة كانت تتطلب يقظة دائمة. عقلك تعلّم أن يتوقع الخطر ليحميك، وهو الآن يحتاج أن يتعلّم أن التهديد قد زال.",
+            cope: "مارس 'التنفس الحجابي' 5 دقائق يومياً (شهيق 4 ثوانٍ، زفير 6). هذا يرسل إشارة أمان للجهاز العصبي ويقلل اليقظة المفرطة تدريجياً.",
+            family: "لتجنب توريث القلق: عندما تشعر بالتوتر أمام أطفالك، قل لهم بوضوح: 'أنا متوتر الآن بسبب تفكيري في موضوع شخصي، وليس بسببكم. سأهدأ وأعود'. هذا يعلمهم أن المشاعر تُحل ولا تُخبأ."
+        },
+        1: {
+            understand: "حساسيتك للنقد قد تكون بقايا طفل تعلّم أن 'الظهور' يجلب الألم. عقلك ربط بين المواقف الاجتماعية والخطر، فأصبح التجنب وسيلتك للشعور بالأمان.",
+            cope: "جرب 'التعرض المتدرج': ابدأ بمحادثة قصيرة مع زميل تثق به، ثم وسّع الدائرة ببطء. كل مرة تنجو فيها دون أذى، يعيد عقلك تقييم الخطر.",
+            family: "امنح عائلتك مساحة للتعبير عن الرأي دون عقاب. عندما يختلف طفلك معك، استمع أولاً وقل: 'شكراً لمشاركتك رأيك'. هذا يكسر دائرة الخوف من التقييم."
+        },
+        2: {
+            understand: "صوتك الداخلي القاسي ليس حقيقتك، بل صدى لرسائل قديمة (نقد، حب مشروط). لقد تعلمت أن قيمتك في إنجازك، فصرت تجري خلف إثبات الذات ولا تصل أبداً.",
+            cope: "اكتب إنجازاً صغيراً يومياً ولو كان 'استمعت لصديق'، وقل لنفسك: 'أنا ذو قيمة بوجودي، وليس فقط بما أنجزه'. هذا يعيد بناء الاستحقاق الداخلي.",
+            family: "مارس 'القبول غير المشروط' مع أطفالك: عبّر عن حبك لهم وقت الفشل كما وقت النجاح. هذا يقطع سلسلة الحب المشروط التي ربما عانيت منها."
+        },
+        3: {
+            understand: "الذكريات التي تقتحمك أو التوتر الجسدي المفاجئ ليس ضعفاً، بل أثر لصدمة غير معالَجة. جسدك يتذكر ما حاول عقلك نسيانه. هذه الاستجابة ليست عيباً، بل شهادة على قوتك في تحمّل ما كان يفوق طاقتك.",
+            cope: "استخدم قاعدة (5-4-3-2-1) عندما تشعر بأن الماضي يغمرك: سمّ 5 أشياء تراها، 4 تلمسها، 3 تسمعها، 2 تشمها، و1 تتذوقه. هذا يعيد وعيك للحاضر بأمان.",
+            family: "حماية عائلتك تبدأ بأن تسمح لنفسك بطلب المساعدة. التحدث مع مختص ليس فشلاً، بل هو أعظم هدية تقدمها لأطفالك: والد يتعافى."
+        },
+        4: {
+            understand: "لقد حملت أثقالاً عاطفية أكبر من عمرك في الصغر (الاستماع لمشاكل الكبار، تحمل المسؤولية مبكراً). هذا جعلك 'بالغاً صغيراً'، والآن تشعر بالإرهاق لأن خزانك العاطفي لم يمتلئ أصلاً.",
+            cope: "ابدأ بتمرين 'لا' صغيرة مرة في الأسبوع: ارفض طلباً لا يضر، فقط لتتعلم أن راحتك مشروعة. 'لا' ليست أنانية، بل استعادة لحدودك.",
+            family: "لا تجعل أطفالك 'شركاءك العاطفيين' في هموم الكبار. تحدث مع راشدين تثق بهم، وامنح صغارك طفولة خالية من دور المنقذ."
+        }
+    };
+
+    const adviceDB_EN = {
+        0: {
+            understand: "Your anxiety is not weakness, but an alarm system that developed in an environment requiring constant vigilance. Your mind learned to expect danger to protect you, and now it needs to learn that the threat has passed.",
+            cope: "Practice 'diaphragmatic breathing' 5 minutes daily (inhale 4 sec, exhale 6 sec). This sends a safety signal to the nervous system and gradually reduces hypervigilance.",
+            family: "To avoid passing on anxiety: when you feel stressed in front of your children, tell them clearly: 'I'm feeling stressed right now because of a personal matter, not because of you. I'll calm down and come back.' This teaches them that emotions are resolved, not hidden."
+        },
+        1: {
+            understand: "Your sensitivity to criticism may be remnants of a child who learned that 'visibility' brings pain. Your mind linked social situations with danger, so avoidance became your way of feeling safe.",
+            cope: "Try 'gradual exposure': start with a short conversation with a trusted colleague, then slowly expand your circle. Each time you survive without harm, your mind reevaluates the danger.",
+            family: "Give your family space to express opinions without punishment. When your child disagrees with you, listen first and say: 'Thank you for sharing your opinion.' This breaks the cycle of fear of evaluation."
+        },
+        2: {
+            understand: "Your harsh inner voice is not your truth, but an echo of old messages (criticism, conditional love). You learned that your worth is in your achievements, so you keep running to prove yourself and never arrive.",
+            cope: "Write down one small achievement daily, even if it's 'I listened to a friend,' and tell yourself: 'I have value just by being, not only by what I achieve.' This rebuilds inner worth.",
+            family: "Practice 'unconditional acceptance' with your children: express love for them in failure as in success. This breaks the chain of conditional love you may have experienced."
+        },
+        3: {
+            understand: "The memories that intrude or sudden physical tension are not weakness, but the impact of unprocessed trauma. Your body remembers what your mind tried to forget. This response is not a flaw, but a testament to your strength in enduring what was beyond your capacity.",
+            cope: "Use the (5-4-3-2-1) technique when you feel the past overwhelming you: name 5 things you see, 4 you touch, 3 you hear, 2 you smell, and 1 you taste. This safely brings your awareness back to the present.",
+            family: "Protecting your family starts with allowing yourself to seek help. Speaking with a professional is not failure, but the greatest gift you can give your children: a parent who heals."
+        },
+        4: {
+            understand: "You carried emotional weights heavier than your age in childhood (listening to adults' problems, taking on responsibility early). This made you a 'little adult,' and now you feel exhausted because your emotional tank was never filled.",
+            cope: "Start with a small 'no' exercise once a week: refuse a harmless request, just to learn that your comfort is legitimate. 'No' is not selfishness, but reclaiming your boundaries.",
+            family: "Don't make your children your 'emotional partners' in adult concerns. Talk to trusted adults, and give your little ones a childhood free from the rescuer role."
+        }
+    };
+
+    // ==================== STATE ====================
+    let currentLang = 'ar';
+    let questions = questionsAR;
+    let categories = categoriesAR;
+    let adviceDB = adviceDB_AR;
+    let curStep = 0;
+    let answers = [];
+    window.topProblemId = 0;
+
+    // ==================== UI HELPERS ====================
+    function t(key) {
+        return translations[currentLang][key] || key;
+    }
+
+    function updateAllStaticTexts() {
+        document.documentElement.lang = currentLang;
+        document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+        
+        // List of [elementId, translationKey] pairs
+        const ids = [
+            ['langBtn', 'langBtn'],
+            ['envText', 'envText'],
+            ['trackStatusText', 'trackStatusText'],
+            ['heroTitle', 'heroTitle'],
+            ['heroDesc', 'heroDesc'],
+            ['scientificTitle', 'scientificTitle'],
+            ['scientificText', 'scientificText'],
+            ['startBtn', 'startBtn'],
+            ['stageLabel', 'stageLabel'],
+            ['prevBtn', 'prevBtn'],
+            ['resultTitle', 'resultTitle'],
+            ['resultDesc', 'resultDesc'],
+            ['resilienceTitle', 'resilienceTitle'],
+            ['confirmTitle', 'confirmTitle'],
+            ['confirmYes', 'confirmYes'],
+            ['confirmSomewhat', 'confirmSomewhat'],
+            ['understandTitle', 'understandTitle'],
+            ['copeTitle', 'copeTitle'],
+            ['familyTitle', 'familyTitle'],
+            ['breakChain', 'breakChain'],
+            ['whatNextTitle', 'whatNextTitle'],
+            ['openQ', 'openQ'],
+            ['restartBtn', 'restartBtn'],
+            ['howBtn', 'howBtn'],
+            ['howText', 'howText']
         ];
+        ids.forEach(([id, key]) => {
+            const el = document.getElementById(id);
+            if (el) el.innerText = t(key);
+        });
+        document.getElementById('openAnswer').placeholder = t('openPlaceholder');
+        document.querySelector('#scientificBox').style.textAlign = currentLang === 'ar' ? 'right' : 'left';
+    }
 
-        const questions = [
-            { cat: 0, q: "هل شعرت في طفولتك أنك مضطر لتوقع الأسوأ دائماً؟", inv: false },
-            { cat: 1, q: "هل كان تعرضك للنقد أمام الآخرين يسبب لك ألماً شديداً؟", inv: false },
-            { cat: 2, q: "هل تشعر حالياً أن قيمتك تعتمد على مدى إرضائك للآخرين؟", inv: false },
-            { cat: 3, q: "هل هناك أحداث قديمة تجعل عقلك يتجمد عند تذكرها؟", inv: false },
-            { cat: 4, q: "هل كنت 'المستمع الصبور' لمشاكل الكبار وأنت لا تزال طفلاً؟", inv: false },
-            { cat: 0, q: "هل كنت تجد مكاناً آمناً تماماً تهرب إليه عندما تخاف؟", inv: true },
-            { cat: 3, q: "هل تعاني من توتر جسدي مفاجئ دون سبب واضح؟", inv: false },
-            { cat: 1, q: "هل تتجنب المناسبات الاجتماعية خوفاً من أن يُساء فهمك؟", inv: false },
-            { cat: 4, q: "هل تشعر بالذنب إذا فكرت في راحتك قبل راحة أهلك؟", inv: false },
-            { cat: 2, q: "هل يراودك صوت داخلي يخبرك بأنك 'فاشل' عند الخطأ؟", inv: false },
-            { cat: 0, q: "هل تشعر بالخوف من الهجر أو فقدان من تحب فجأة؟", inv: false },
-            { cat: 1, q: "هل كان مسموحاً لك التعبير عن رأيك بحرية في منزلك؟", inv: true },
-            { cat: 2, q: "هل فقدت الرغبة في خوض تحديات جديدة خوفاً من الإخفاق؟", inv: false },
-            { cat: 3, q: "هل تبالغ في رد فعلك تجاه مواقف بسيطة تشبه الماضي؟", inv: false },
-            { cat: 4, q: "هل تشعر بمسؤولية ثقيلة عن مشاكل لم تكن أنت سببها؟", inv: false },
-            { cat: 5, q: "هل كان هناك شخص بالغ واحد على الأقل في طفولتك يشعرك بالأمان والثقة؟", inv: false },
-            { cat: 5, q: "هل تمارس اليوم نشاطاً أو هواية تساعدك على استعادة توازنك النفسي؟", inv: false }
-        ];
-
-        const adviceDB = {
-            0: {
-                understand: "القلق لديك ليس ضعفاً، بل نظام إنذار نشأ في بيئة كانت تتطلب يقظة دائمة. عقلك تعلّم أن يتوقع الخطر ليحميك، وهو الآن يحتاج أن يتعلّم أن التهديد قد زال.",
-                cope: "مارس 'التنفس الحجابي' 5 دقائق يومياً (شهيق 4 ثوانٍ، زفير 6). هذا يرسل إشارة أمان للجهاز العصبي ويقلل اليقظة المفرطة تدريجياً.",
-                family: "لتجنب توريث القلق: عندما تشعر بالتوتر أمام أطفالك، قل لهم بوضوح: 'أنا متوتر الآن بسبب تفكيري في موضوع شخصي، وليس بسببكم. سأهدأ وأعود'. هذا يعلمهم أن المشاعر تُحل ولا تُخبأ."
-            },
-            1: {
-                understand: "حساسيتك للنقد قد تكون بقايا طفل تعلّم أن 'الظهور' يجلب الألم. عقلك ربط بين المواقف الاجتماعية والخطر، فأصبح التجنب وسيلتك للشعور بالأمان.",
-                cope: "جرب 'التعرض المتدرج': ابدأ بمحادثة قصيرة مع زميل تثق به، ثم وسّع الدائرة ببطء. كل مرة تنجو فيها دون أذى، يعيد عقلك تقييم الخطر.",
-                family: "امنح عائلتك مساحة للتعبير عن الرأي دون عقاب. عندما يختلف طفلك معك، استمع أولاً وقل: 'شكراً لمشاركتك رأيك'. هذا يكسر دائرة الخوف من التقييم."
-            },
-            2: {
-                understand: "صوتك الداخلي القاسي ليس حقيقتك، بل صدى لرسائل قديمة (نقد، حب مشروط). لقد تعلمت أن قيمتك في إنجازك، فصرت تجري خلف إثبات الذات ولا تصل أبداً.",
-                cope: "اكتب إنجازاً صغيراً يومياً ولو كان 'استمعت لصديق'، وقل لنفسك: 'أنا ذو قيمة بوجودي، وليس فقط بما أنجزه'. هذا يعيد بناء الاستحقاق الداخلي.",
-                family: "مارس 'القبول غير المشروط' مع أطفالك: عبّر عن حبك لهم وقت الفشل كما وقت النجاح. هذا يقطع سلسلة الحب المشروط التي ربما عانيت منها."
-            },
-            3: {
-                understand: "الذكريات التي تقتحمك أو التوتر الجسدي المفاجئ ليس ضعفاً، بل أثر لصدمة غير معالَجة. جسدك يتذكر ما حاول عقلك نسيانه. هذه الاستجابة ليست عيباً، بل شهادة على قوتك في تحمّل ما كان يفوق طاقتك.",
-                cope: "استخدم قاعدة (5-4-3-2-1) عندما تشعر بأن الماضي يغمرك: سمّ 5 أشياء تراها، 4 تلمسها، 3 تسمعها، 2 تشمها، و1 تتذوقه. هذا يعيد وعيك للحاضر بأمان.",
-                family: "حماية عائلتك تبدأ بأن تسمح لنفسك بطلب المساعدة. التحدث مع مختص ليس فشلاً، بل هو أعظم هدية تقدمها لأطفالك: والد يتعافى."
-            },
-            4: {
-                understand: "لقد حملت أثقالاً عاطفية أكبر من عمرك في الصغر (الاستماع لمشاكل الكبار، تحمل المسؤولية مبكراً). هذا جعلك 'بالغاً صغيراً'، والآن تشعر بالإرهاق لأن خزانك العاطفي لم يمتلئ أصلاً.",
-                cope: "ابدأ بتمرين 'لا' صغيرة مرة في الأسبوع: ارفض طلباً لا يضر، فقط لتتعلم أن راحتك مشروعة. 'لا' ليست أنانية، بل استعادة لحدودك.",
-                family: "لا تجعل أطفالك 'شركاءك العاطفيين' في هموم الكبار. تحدث مع راشدين تثق بهم، وامنح صغارك طفولة خالية من دور المنقذ."
-            }
-        };
-
-        function startTest() {
-            document.getElementById('intro').style.display = 'none';
-            document.getElementById('quiz').style.display = 'block';
+    // ==================== LANGUAGE TOGGLE ====================
+    function toggleLanguage() {
+        currentLang = currentLang === 'ar' ? 'en' : 'ar';
+        questions = currentLang === 'ar' ? questionsAR : questionsEN;
+        categories = currentLang === 'ar' ? categoriesAR : categoriesEN;
+        adviceDB = currentLang === 'ar' ? adviceDB_AR : adviceDB_EN;
+        updateAllStaticTexts();
+        // If quiz is active, re-render question
+        if (document.getElementById('quiz').style.display === 'block') {
             renderQ();
         }
+    }
 
-        function renderQ() {
-            const q = questions[curStep];
-            document.getElementById('progressNum').innerText = `${curStep + 1} / ${questions.length}`;
-            document.getElementById('pBar').style.width = `${((curStep + 1) / questions.length) * 100}%`;
-            document.getElementById('questionText').innerText = q.q;
-            const opts = ["دائماً", "غالباً", "أحياناً", "نادراً", "أبداً"];
-            document.getElementById('options').innerHTML = opts.map((o, i) =>
-                `<button onclick="handleAns(${4 - i})" class="quiz-option">${o}</button>`
-            ).join('');
-            document.getElementById('prevBtn').style.visibility = curStep > 0 ? 'visible' : 'hidden';
-        }
+    // ==================== QUIZ LOGIC ====================
+    function startTest() {
+        curStep = 0;
+        answers = [];
+        document.getElementById('intro').style.display = 'none';
+        document.getElementById('quiz').style.display = 'block';
+        document.getElementById('result').style.display = 'none';
+        document.getElementById('adviceSec').style.display = 'none';
+        document.getElementById('confirmResult').style.display = 'block';
+        updateAllStaticTexts();
+        renderQ();
+    }
 
-        function handleAns(val) {
-            answers[curStep] = questions[curStep].inv ? (4 - val) : val;
-            if (curStep < questions.length - 1) { curStep++; renderQ(); }
-            else { showFinal(); }
-        }
+    function renderQ() {
+        const q = questions[curStep];
+        document.getElementById('progressNum').innerText = `${curStep + 1} / ${questions.length}`;
+        document.getElementById('pBar').style.width = `${((curStep + 1) / questions.length) * 100}%`;
+        document.getElementById('questionText').innerText = q.q;
+        document.getElementById('options').innerHTML = t('options').map((opt, i) =>
+            `<button onclick="handleAns(${4 - i})" class="quiz-option">${opt}</button>`
+        ).join('');
+        document.getElementById('prevBtn').style.visibility = curStep > 0 ? 'visible' : 'hidden';
+    }
 
-        function goBack() { if (curStep > 0) { curStep--; renderQ(); } }
+    function handleAns(val) {
+        answers[curStep] = questions[curStep].inv ? (4 - val) : val;
+        if (curStep < questions.length - 1) { curStep++; renderQ(); }
+        else { showFinal(); }
+    }
 
-        function showFinal() {
-            document.getElementById('quiz').style.display = 'none';
-            document.getElementById('result').style.display = 'block';
+    function goBack() {
+        if (curStep > 0) { curStep--; renderQ(); }
+    }
 
-            const results = categories.filter(c => c.id < 5).map(cat => {
-                const score = questions.reduce((acc, q, i) => q.cat === cat.id ? acc + (answers[i] || 0) : acc, 0);
-                return { ...cat, score };
-            }).sort((a, b) => b.score - a.score);
+    // ==================== RESULTS & ADVICE ====================
+    function showFinal() {
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('confirmResult').style.display = 'block';
+        document.getElementById('adviceSec').style.display = 'none';
+        updateAllStaticTexts();
 
-            document.getElementById('symptomList').innerHTML = results.map(res => {
-                const p = (res.score / 12) * 100;
-                const lvl = p < 35 ? 'مستقر' : p < 70 ? 'متأثر' : 'مرتفع الأثر';
-                const clr = p < 35 ? '#10b981' : p < 70 ? '#f59e0b' : '#ef4444';
-                const textClr = p < 35 ? '#065f46' : p < 70 ? '#92400e' : '#7f1d1d';
-                return `
-                    <div style="margin-bottom:1.2rem;">
-                        <div style="display:flex; justify-content:space-between; font-weight:700;">
-                            <span>${res.name}</span>
-                            <span style="color:${textClr};">${lvl} · ${p.toFixed(0)}%</span>
-                        </div>
-                        <div class="result-bar"><div class="result-fill" style="width:${p}%; background:${clr};"></div></div>
-                        <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">${res.info}</div>
+        const results = categories.filter(c => c.id < 5).map(cat => {
+            const score = questions.reduce((acc, q, i) => q.cat === cat.id ? acc + (answers[i] || 0) : acc, 0);
+            return { ...cat, score };
+        }).sort((a, b) => b.score - a.score);
+
+        document.getElementById('symptomList').innerHTML = results.map(res => {
+            const p = (res.score / 12) * 100;
+            const levelIndex = p < 35 ? 0 : p < 70 ? 1 : 2;
+            const lvl = t('levels')[levelIndex];
+            const clr = levelIndex === 0 ? '#10b981' : levelIndex === 1 ? '#f59e0b' : '#ef4444';
+            const textClr = levelIndex === 0 ? '#065f46' : levelIndex === 1 ? '#92400e' : '#7f1d1d';
+            return `
+                <div style="margin-bottom:1.2rem;">
+                    <div style="display:flex; justify-content:space-between; font-weight:700;">
+                        <span>${res.name}</span>
+                        <span style="color:${textClr};">${lvl} · ${p.toFixed(0)}%</span>
                     </div>
-                `;
-            }).join('');
+                    <div class="result-bar"><div class="result-fill" style="width:${p}%; background:${clr};"></div></div>
+                    <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">${res.info}</div>
+                </div>
+            `;
+        }).join('');
 
-            // Resilience
-            const resilienceScore = questions.reduce((acc, q, i) => q.cat === 5 ? acc + (answers[i] || 0) : acc, 0);
-            const resiliencePercent = (resilienceScore / 8) * 100;
-            document.getElementById('resilienceBox').style.display = 'block';
-            document.getElementById('resilienceText').innerText = resiliencePercent >= 50
-                ? `لديك موارد نفسية جيدة (${resiliencePercent.toFixed(0)}%). حتى في وجود صعوبات، هناك مصادر دعم وأمان تساعدك على التعافي.`
-                : `مواردك النفسية منخفضة نسبياً (${resiliencePercent.toFixed(0)}%). قد تكون تحملت الكثير وحدك. البحث عن مساحة دعم جديدة خطوة شجاعة.`;
+        // Resilience
+        const resilienceScore = questions.reduce((acc, q, i) => q.cat === 5 ? acc + (answers[i] || 0) : acc, 0);
+        const resiliencePercent = (resilienceScore / 8) * 100;
+        document.getElementById('resilienceBox').style.display = 'block';
+        const baseMsg = resiliencePercent >= 50 ? t('resilienceHigh') : t('resilienceLow');
+        const extraMsg = resiliencePercent >= 50 ? t('resilienceHighExtra') : t('resilienceLowExtra');
+        document.getElementById('resilienceText').innerText = `${baseMsg} (${resiliencePercent.toFixed(0)}%). ${extraMsg}`;
 
-            // Consistency
-            const avgFear = (answers[0] + answers[10]) / 2;
-            const safety = answers[5];
-            const diff = Math.abs(avgFear - safety);
-            const icon = diff <= 1 ? '✅' : diff <= 2 ? '🟡' : '🔴';
-            const msg = diff <= 1 ? 'إجاباتك متناسقة، مما يعكس وضوحاً في مشاعرك.'
-                        : diff <= 2 ? 'بعض التناقض طبيعي وقد يدل على مشاعر معقدة.'
-                        : 'تباين كبير في الإجابات. قد تكون في حالة ضبابية عاطفية.';
-            document.getElementById('consistencyIcon').innerText = icon;
-            document.getElementById('consistencyMsg').innerText = msg;
+        // Consistency
+        const avgFear = (answers[0] + answers[10]) / 2;
+        const safety = answers[5];
+        const diff = Math.abs(avgFear - safety);
+        const icon = diff <= 1 ? '✅' : diff <= 2 ? '🟡' : '🔴';
+        const msgIndex = diff <= 1 ? 0 : diff <= 2 ? 1 : 2;
+        document.getElementById('consistencyIcon').innerText = icon;
+        document.getElementById('consistencyMsg').innerText = t('consistencyMsgs')[msgIndex];
 
-            // Link
-            const topIds = results.slice(0, 2).map(r => r.id);
-            const linkBox = document.getElementById('linkBox');
-            if (topIds.includes(0) && topIds.includes(1)) {
-                linkBox.style.display = 'block';
-                linkBox.querySelector('p').innerText = 'ارتفاع القلق والرهاب الاجتماعي معاً قد يشير إلى حساسية مرتفعة للتقييم الاجتماعي، غالباً من تجارب نقد مبكرة.';
-            } else if (topIds.includes(2) && topIds.includes(4)) {
-                linkBox.style.display = 'block';
-                linkBox.querySelector('p').innerText = 'ارتفاع تقدير الذات المتدني والاحتراق النفسي معاً شائع لدى من حملوا مسؤوليات مبكرة وربطوا قيمتهم بالعطاء.';
-            } else {
-                linkBox.style.display = 'none';
-            }
-
-            window.topProblemId = results[0].id;
+        // Link between top two problems
+        const topIds = results.slice(0, 2).map(r => r.id);
+        const linkBox = document.getElementById('linkBox');
+        const linkText = document.getElementById('linkText');
+        if (topIds.includes(0) && topIds.includes(1)) {
+            linkBox.style.display = 'block';
+            linkText.innerText = t('linkMsgs').anxiety_social;
+        } else if (topIds.includes(2) && topIds.includes(4)) {
+            linkBox.style.display = 'block';
+            linkText.innerText = t('linkMsgs').esteem_burnout;
+        } else {
+            linkBox.style.display = 'none';
         }
 
-        function revealAdvice() {
-            document.getElementById('confirmResult').style.display = 'none';
-            document.getElementById('adviceSec').style.display = 'block';
+        window.topProblemId = results[0].id;
+    }
 
-            const topId = window.topProblemId || 0;
-            const adv = adviceDB[topId] || adviceDB[0];
-            document.getElementById('advUnderstanding').innerText = adv.understand;
-            document.getElementById('advCoping').innerText = adv.cope;
-            document.getElementById('advFamily').innerHTML = `<p>${adv.family}</p>`;
+    function revealAdvice() {
+        document.getElementById('confirmResult').style.display = 'none';
+        document.getElementById('adviceSec').style.display = 'block';
+        const topId = window.topProblemId || 0;
+        const adv = adviceDB[topId] || adviceDB[0];
+        document.getElementById('advUnderstanding').innerText = adv.understand;
+        document.getElementById('advCoping').innerText = adv.cope;
+        document.getElementById('advFamily').innerHTML = `<p>${adv.family}</p>`;
 
-            const topResult = categories.filter(c=>c.id<5).map(cat => ({
-                id: cat.id,
-                score: questions.reduce((acc, q, i) => q.cat === cat.id ? acc + (answers[i] || 0) : acc, 0)
-            })).find(s => s.id === topId) || {score:0};
-            const pct = (topResult.score / 12) * 100;
-            const whatNext = document.getElementById('whatNextBox');
-            if (pct < 35) whatNext.innerHTML = '<strong>أنت في حالة وعي جيدة.</strong> حافظ على ممارساتك الصحية، ويمكنك تعزيز مناعتك النفسية بتمارين الامتنان والتأمل القصير.';
-            else if (pct < 70) whatNext.innerHTML = '<strong>هناك بعض الأنماط التي قد تستنزف طاقتك.</strong> جرب تطبيق النصائح أعلاه لمدة أسبوعين. إذا تحسنت، فهذا مؤشر إيجابي. وإن استمرت، قد يكون من المفيد التحدث مع استشاري نفسي مرة واحدة على الأقل.';
-            else whatNext.innerHTML = '<strong>الأنماط الظاهرة لديك قوية التأثير.</strong> هذا لا يعني أنك "مكسور"، بل أن دفاعاتك القديمة لا تزال تحميك بطريقتها. من الحكمة مراجعة مختص نفسي لمساعدتك على تفكيكها بأمان. هذه الأداة مجرد بداية للمحادثة.';
+        const topResult = categories.filter(c => c.id < 5).map(cat => ({
+            id: cat.id,
+            score: questions.reduce((acc, q, i) => q.cat === cat.id ? acc + (answers[i] || 0) : acc, 0)
+        })).find(s => s.id === topId) || { score: 0 };
+        const pct = (topResult.score / 12) * 100;
+        const whatNextBox = document.getElementById('whatNextBox');
+        if (pct < 35) whatNextBox.innerHTML = t('whatNextLow');
+        else if (pct < 70) whatNextBox.innerHTML = t('whatNextMid');
+        else whatNextBox.innerHTML = t('whatNextHigh');
 
-            document.getElementById('howItWorks').style.display = 'none';
-            window.scrollTo({ top: document.getElementById('adviceSec').offsetTop, behavior: 'smooth' });
-        }
+        document.getElementById('howItWorks').style.display = 'none';
+        window.scrollTo({ top: document.getElementById('adviceSec').offsetTop - 20, behavior: 'smooth' });
+    }
 
-        function toggleLanguage() {
-            // For visual coherence, we keep Arabic only. Toggle just changes button look.
-            const btn = document.getElementById('langBtn');
-            if (btn.innerText.includes('English')) {
-                btn.innerText = 'عربي 🌐';
-            } else {
-                btn.innerText = 'English 🌐';
-            }
-        }
-    </script>
+    function toggleHowItWorks() {
+        const el = document.getElementById('howItWorks');
+        el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    }
+
+    // Initial load
+    document.addEventListener('DOMContentLoaded', () => {
+        updateAllStaticTexts();
+    });
+</script>
 </body>
 </html>
