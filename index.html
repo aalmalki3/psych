@@ -3,111 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>اختبار الجذور النفسية | Psychological Roots Test</title>
+    <title>مقياس الجذور النفسية | Psychological Depth Scale</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --safe-top: env(safe-area-inset-top); --safe-bottom: env(safe-area-inset-bottom); }
-        body { font-family: 'Cairo', 'Inter', sans-serif; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
-        .mobile-card { min-height: calc(100vh - 4rem - var(--safe-top) - var(--safe-bottom)); }
-        .fade-in { animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
-        button { touch-action: manipulation; }
-        .btn-option:active { transform: scale(0.98); background-color: #eff6ff; }
+        body { font-family: 'Cairo', sans-serif; background: #f8fafc; color: #1e293b; }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5); }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .progress-glow { box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
+        .advice-card { transition: all 0.3s ease; }
+        .advice-card:hover { transform: translateY(-5px); border-color: #3b82f6; }
     </style>
 </head>
-<body class="antialiased text-slate-900">
+<body class="antialiased selection:bg-blue-100">
 
-<div id="app" class="max-w-md mx-auto min-h-screen flex flex-col justify-center p-4 md:p-6 fade-in">
-    <!-- Lang Toggle -->
-    <div class="flex justify-between items-center mb-6 pt-[var(--safe-top)]">
-        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Mastermind CTO v1.1</span>
-        <button onclick="toggleLanguage()" id="langBtn" class="bg-white/50 backdrop-blur px-4 py-1.5 rounded-full border border-slate-200 text-sm font-bold text-blue-600 shadow-sm">English</button>
-    </div>
-
-    <!-- Main Container -->
-    <div class="bg-white rounded-[2rem] shadow-2xl shadow-blue-900/5 p-6 md:p-8 relative overflow-hidden border border-white">
-        
-        <!-- Intro Screen -->
-        <div id="intro" class="text-center py-4">
-            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+<div id="app" class="min-h-screen flex flex-col items-center py-8 px-4 md:px-8">
+    
+    <header class="w-full max-w-4xl flex justify-between items-center mb-10">
+        <div class="flex items-center gap-2">
+            <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-200">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
-            <h1 id="title" class="text-2xl font-extrabold text-slate-800 mb-4 leading-tight">رحلة استكشاف الذات</h1>
-            <p id="description" class="text-slate-500 mb-8 leading-relaxed">فهم جذور الماضي هو مفتاح التوازن في الحاضر. اختبار نفسي عميق مبني على معايير دولية.</p>
-            <button onclick="startTest()" class="bg-blue-600 text-white w-full py-4 rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all active:scale-[0.97]">ابدأ الآن</button>
+            <h1 class="text-xl font-extrabold tracking-tight text-slate-800">مقياس الجذور <span class="text-blue-600">v1.2</span></h1>
+        </div>
+        <button onclick="toggleLanguage()" id="langBtn" class="px-4 py-2 bg-white rounded-xl border border-slate-200 text-sm font-bold text-slate-600 hover:bg-slate-50 transition shadow-sm">English</button>
+    </header>
+
+    <main class="w-full max-w-4xl glass-card rounded-[2.5rem] shadow-2xl shadow-slate-200/50 p-6 md:p-12 min-h-[500px] flex flex-col">
+        
+        <div id="intro" class="text-center my-auto fade-in">
+            <h2 id="title" class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-6">هل أنت مستعد لمواجهة الماضي بسلام؟</h2>
+            <p id="description" class="text-lg text-slate-500 max-w-2xl mx-auto mb-10 leading-relaxed">سنقوم معاً بتحليل أثر تجارب الطفولة والمراهقة على حالتك النفسية الحالية، بمنهجية علمية دقيقة تهدف للشفاء لا للحكم.</p>
+            <button onclick="startTest()" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-extrabold text-lg shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all hover:scale-[1.02] active:scale-[0.98] w-full md:w-auto">بدء رحلة الاستكشاف</button>
         </div>
 
-        <!-- Quiz Screen -->
-        <div id="quiz" class="hidden">
-            <div class="flex items-center justify-between mb-6">
-                <div id="stageLabel" class="text-xs font-bold px-3 py-1 bg-slate-100 rounded-full text-slate-600">المرحلة: الطفولة</div>
-                <span id="progressText" class="text-xs font-bold text-blue-600">1 / 10</span>
-            </div>
-            
-            <div class="w-full bg-slate-100 h-1.5 rounded-full mb-8 overflow-hidden">
-                <div id="progressBar" class="bg-blue-500 h-full transition-all duration-500 ease-out" style="width: 10%"></div>
-            </div>
-
-            <h2 id="questionText" class="text-xl font-bold text-slate-800 mb-8 leading-snug">السؤال يظهر هنا</h2>
-
-            <div id="options" class="space-y-3">
-                <!-- Buttons injected -->
+        <div id="quiz" class="hidden flex-grow fade-in">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+                <div id="stageLabel" class="inline-flex items-center px-4 py-2 bg-blue-50 rounded-xl text-blue-700 font-bold text-sm">المرحلة: الطفولة</div>
+                <div class="flex items-center gap-3">
+                    <span id="progressText" class="text-sm font-bold text-slate-400">1 من 10</span>
+                    <div class="w-32 md:w-48 bg-slate-100 h-2 rounded-full overflow-hidden">
+                        <div id="progressBar" class="bg-blue-600 h-full transition-all duration-500 progress-glow" style="width: 10%"></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="mt-10 flex items-center justify-start">
-                <button id="prevBtn" onclick="goBack()" class="flex items-center text-slate-400 font-bold text-sm hover:text-slate-600 transition">
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                    <span id="prevText">السابق</span>
+            <h3 id="questionText" class="text-2xl md:text-3xl font-bold text-slate-800 mb-10 leading-snug min-h-[100px]">السؤال يظهر هنا</h3>
+
+            <div id="options" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                </div>
+
+            <div class="mt-12 flex justify-between items-center border-t pt-8">
+                <button id="prevBtn" onclick="goBack()" class="flex items-center gap-2 text-slate-400 font-bold hover:text-slate-600 transition">
+                    <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7-7 7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    السابق
                 </button>
             </div>
         </div>
 
-        <!-- Result Screen -->
-        <div id="result" class="hidden">
-            <h2 id="resultTitle" class="text-2xl font-bold text-slate-800 mb-6 border-b pb-4">تحليل الجذور</h2>
-            <div id="resultContent" class="space-y-4"></div>
+        <div id="result" class="hidden fade-in">
+            <h2 id="resultTitle" class="text-3xl font-extrabold text-slate-800 mb-8 border-b pb-6">التقرير النفسي التحليلي</h2>
             
-            <div class="mt-8 p-5 bg-emerald-50 rounded-2xl border border-emerald-100">
-                <h3 id="brightSideTitle" class="text-emerald-800 font-bold flex items-center mb-2">
-                    <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.477.859h4z"></path></svg>
-                    الجانب المشرق
-                </h3>
-                <p id="brightSideText" class="text-emerald-700 text-sm leading-relaxed italic"></p>
+            <div id="severitySummary" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10"></div>
+            
+            <div class="mb-10">
+                <h4 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">تحليل الأعراض المكتسبة:</h4>
+                <div id="symptomsBreakdown" class="space-y-6"></div>
             </div>
 
-            <button onclick="location.reload()" class="mt-8 w-full py-4 text-slate-400 font-bold text-sm hover:text-slate-600 transition">إعادة المحاولة</button>
-        </div>
-    </div>
+            <div id="confirmationBox" class="bg-slate-900 p-8 rounded-[2rem] text-white text-center mb-10">
+                <h4 class="text-xl font-bold mb-4">هل تشعر أن هذا التحليل يلامس واقعك؟</h4>
+                <p class="text-slate-400 mb-8">إجابتك تساعدنا في تقديم النصائح الأكثر دقة لك.</p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button onclick="confirmResults(true)" class="bg-blue-600 px-8 py-3 rounded-xl font-bold hover:bg-blue-500 transition">نعم، دقيق جداً</button>
+                    <button onclick="confirmResults(false)" class="bg-slate-800 px-8 py-3 rounded-xl font-bold hover:bg-slate-700 transition">إلى حد ما</button>
+                </div>
+            </div>
 
-    <!-- Footer Security Notice -->
-    <p class="text-center mt-8 text-[10px] text-slate-400 uppercase tracking-widest px-4">
-        🔒 تم معالجة البيانات محلياً. خصوصيتك محمية بموجب بروتوكول CTO Zero-Data.
-    </p>
+            <div id="adviceSection" class="hidden fade-in space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="advice-card p-6 rounded-2xl border-2 border-slate-100 bg-white">
+                        <div class="text-blue-600 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <h5 class="font-bold mb-3">فهم الشعور</h5>
+                        <p id="adv1" class="text-sm text-slate-500 leading-relaxed"></p>
+                    </div>
+                    <div class="advice-card p-6 rounded-2xl border-2 border-slate-100 bg-white">
+                        <div class="text-amber-500 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></div>
+                        <h5 class="font-bold mb-3">التعامل معه</h5>
+                        <p id="adv2" class="text-sm text-slate-500 leading-relaxed"></p>
+                    </div>
+                    <div class="advice-card p-6 rounded-2xl border-2 border-slate-100 bg-white">
+                        <div class="text-emerald-500 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div>
+                        <h5 class="font-bold mb-3">حماية أسرتك</h5>
+                        <p id="adv3" class="text-sm text-slate-500 leading-relaxed"></p>
+                    </div>
+                </div>
+                <button onclick="location.reload()" class="w-full py-4 text-slate-400 font-bold hover:text-blue-600 transition">بدء اختبار جديد</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-12 text-center text-slate-400 text-xs font-bold uppercase tracking-widest">
+        &copy; 2024 CTO MASTERMIND SECURE EVALUATION
+    </footer>
 </div>
 
 <script>
-    // [The logic from the previous version is kept intact but with updated UI mappings]
     const translations = {
         ar: {
-            title: "رحلة استكشاف الذات",
-            description: "فهم جذور الماضي هو مفتاح التوازن في الحاضر. اختبار نفسي عميق مبني على معايير دولية.",
-            start: "ابدأ الآن", prev: "السابق", stageC: "المرحلة: الطفولة", stageA: "المرحلة: المراهقة",
-            childhood: "تأثير الطفولة", adolescence: "تأثير المراهقة",
-            severityL: "خفيف", severityM: "متوسط", severityH: "عميق",
-            confirmTitle: "الارتباط بالحاضر:",
-            confirmText: "هل تجد هذا النمط ينطبق على علاقتك الحالية بعائلتك؟",
-            brightSide: "الوعي هو نصف العلاج. أنت الآن تملك الخريطة للبدء في تطهير هذه المساحات وبناء حياة عائلية ملؤها الأمان والسلام النفسي."
+            stageC: "المرحلة: الطفولة", stageA: "المرحلة: المراهقة",
+            childhood: "جذور الطفولة", adolescence: "جذور المراهقة",
+            anxiety: "القلق", stress: "التوتر النفسي", social: "الرهاب الاجتماعي",
+            sevL: "خفيف", sevM: "متوسط", sevH: "مرتفع",
+            adv1: "عليك أن تدرك أن شعورك الحالي ليس 'عيباً' في شخصيتك، بل هو استجابة ذكية من عقلك لحماية نفسك من آلام قديمة. ابدأ بمراقبة متى يظهر هذا الشعور دون إطلاق أحكام.",
+            adv2: "عندما تشعر بالضغط، استخدم تقنية 'التجذر': المس خمسة أشياء من حولك، تنفس بعمق، وذكر نفسك: 'أنا الآن في أمان، والماضي قد انتهى'.",
+            adv3: "لقطع دائرة الألم، كن واعياً بلحظات غضبك أو انسحابك. أخبر أسرتك بصدق: 'أنا متعب الآن، أحتاج لحظة'، بدلاً من تفريغ التوتر فيهم. أنت البطل الذي سيوقف توارث الصدمات."
         },
         en: {
-            title: "Self-Discovery Journey",
-            description: "Understanding past roots is the key to present balance. A deep psychological test based on international standards.",
-            start: "Start Now", prev: "Previous", stageC: "Stage: Childhood", stageA: "Stage: Adolescence",
-            childhood: "Childhood Impact", adolescence: "Adolescence Impact",
-            severityL: "Low", severityM: "Mid", severityH: "Deep",
-            confirmTitle: "Present Correlation:",
-            confirmText: "Do you find this pattern applies to your current family relationships?",
-            brightSide: "Awareness is half the cure. You now hold the map to start purifying these spaces and building a family life full of security and inner peace."
+            stageC: "Stage: Childhood", stageA: "Stage: Adolescence",
+            childhood: "Childhood Roots", adolescence: "Adolescent Roots",
+            anxiety: "Anxiety", stress: "Stress", social: "Social Phobia",
+            sevL: "Mild", sevM: "Moderate", sevH: "High",
+            adv1: "Understand that your current feelings are not a character flaw, but a survival mechanism. Start by observing when these feelings arise without judgment.",
+            adv2: "When under pressure, use 'Grounding': touch 5 objects, breathe deeply, and remind yourself: 'I am safe now, the past is over'.",
+            adv3: "To break the cycle, be mindful of your anger or withdrawal. Tell your family: 'I'm tired, I need a moment,' instead of venting on them. You are the hero stopping the trauma inheritance."
         }
     };
 
@@ -116,16 +136,17 @@
     let userAnswers = [];
 
     const questions = [
-        { id: 1, stage: 'childhood', ar: "هل شعرت بأن احتياجاتك العاطفية كانت مُلباة من قبل والديك؟", en: "Did you feel your emotional needs were met by your parents?", weight: 1, inverse: true },
-        { id: 2, stage: 'childhood', ar: "هل تعرضت لنقد قاسٍ ومستمر في سنواتك الأولى؟", en: "Were you subjected to harsh, constant criticism in your early years?", weight: 1 },
-        { id: 3, stage: 'childhood', ar: "هل كانت هناك مخاوف من التعبير عن مشاعرك الحقيقية؟", en: "Were there fears of expressing your true feelings?", weight: 1 },
-        { id: 4, stage: 'childhood', ar: "هل شعرت بأنك تحمل مسؤوليات أكبر من سنك؟", en: "Did you feel you carried responsibilities beyond your age?", weight: 1 },
-        { id: 5, stage: 'childhood', ar: "هل شعرت بالحماية والأمان الجسدي في بيئتك؟", en: "Did you feel physically safe and protected in your environment?", weight: 1, inverse: true },
-        { id: 6, stage: 'adolescence', ar: "هل شعرت بالعزلة أو عدم الانتماء في محيطك الاجتماعي؟", en: "Did you feel isolated or like you didn't belong in your social circle?", weight: 1 },
-        { id: 7, stage: 'adolescence', ar: "هل كان هناك ضغط شديد لتحقيق التوقعات دون مراعاة لرغباتك؟", en: "Was there intense pressure to meet expectations regardless of your wishes?", weight: 1 },
-        { id: 8, stage: 'adolescence', ar: "هل واجهت صعوبة في وضع حدود شخصية مع الآخرين؟", en: "Did you struggle to set personal boundaries with others?", weight: 1 },
-        { id: 9, stage: 'adolescence', ar: "هل شعرت بأن صوتك كان مسموعاً ومحترماً في العائلة؟", en: "Did you feel your voice was heard and respected in the family?", weight: 1, inverse: true },
-        { id: 10, stage: 'adolescence', ar: "هل كانت هناك صراعات مستمرة داخل المنزل أثرت على استقرارك؟", en: "Were there constant conflicts at home that affected your stability?", weight: 1 }
+        // Category Map: 0=Anxiety, 1=Stress, 2=SocialPhobia
+        { id: 1, cat: 0, stage: 'childhood', ar: "هل شعرت بأن العالم مكان غير آمن في طفولتك؟", en: "Did you feel the world was an unsafe place in your childhood?", inverse: false },
+        { id: 2, cat: 1, stage: 'childhood', ar: "هل كان يُطلب منك الكمال دائماً في كل شيء؟", en: "Were you always expected to be perfect in everything?", inverse: false },
+        { id: 3, cat: 0, stage: 'childhood', ar: "هل كان والديك يتفاعلان مع خوفك بالاحتواء؟", en: "Did your parents respond to your fear with containment?", inverse: true },
+        { id: 4, cat: 2, stage: 'childhood', ar: "هل شعرت بالحرج أو الخجل الشديد أمام الغرباء؟", en: "Did you feel intense embarrassment or shame in front of strangers?", inverse: false },
+        { id: 5, cat: 0, stage: 'childhood', ar: "هل كنت تخشى غياب أحد الوالدين بشكل مفاجئ؟", en: "Did you fear the sudden absence of a parent?", inverse: false },
+        { id: 6, cat: 2, stage: 'adolescence', ar: "هل كنت تتجنب المشاركة في الأنشطة المدرسية خوفاً من التقييم؟", en: "Did you avoid school activities for fear of evaluation?", inverse: false },
+        { id: 7, cat: 1, stage: 'adolescence', ar: "هل شعرت بأنك مسؤول عن سعادة والديك؟", en: "Did you feel responsible for your parents' happiness?", inverse: false },
+        { id: 8, cat: 2, stage: 'adolescence', ar: "هل كان لديك صديق مقرب تشعر معه بالأمان التام؟", en: "Did you have a close friend you felt completely safe with?", inverse: true },
+        { id: 9, cat: 2, stage: 'adolescence', ar: "هل كنت تشعر بأن الجميع يراقب عيوبك؟", en: "Did you feel like everyone was watching your flaws?", inverse: false },
+        { id: 10, cat: 1, stage: 'adolescence', ar: "هل كانت الصراعات المنزلية تجعلك تشعر بالعجز؟", en: "Did home conflicts make you feel helpless?", inverse: false }
     ];
 
     function toggleLanguage() {
@@ -137,10 +158,6 @@
     }
 
     function updateContent() {
-        const t = translations[currentLang];
-        document.getElementById('title').innerText = t.title;
-        document.getElementById('description').innerText = t.description;
-        document.getElementById('prevText').innerText = t.prev;
         if(currentStep < questions.length) renderQuestion();
     }
 
@@ -159,18 +176,17 @@
         document.getElementById('questionText').innerText = q[currentLang];
         
         const options = [
-            { text: currentLang === 'ar' ? 'دائماً' : 'Always', val: 3 },
+            { text: currentLang === 'ar' ? 'بشدة' : 'Strongly', val: 3 },
             { text: currentLang === 'ar' ? 'غالباً' : 'Often', val: 2 },
             { text: currentLang === 'ar' ? 'نادراً' : 'Rarely', val: 1 },
             { text: currentLang === 'ar' ? 'أبداً' : 'Never', val: 0 }
         ];
 
         document.getElementById('options').innerHTML = options.map(opt => `
-            <button onclick="answer(${opt.val})" class="btn-option w-full text-start p-4 border border-slate-100 rounded-2xl hover:border-blue-300 hover:shadow-sm transition-all font-semibold text-slate-700 bg-slate-50/50">
+            <button onclick="answer(${opt.val})" class="w-full text-start p-5 border-2 border-slate-50 rounded-2xl hover:border-blue-200 hover:bg-blue-50 transition-all font-bold text-slate-700">
                 ${opt.text}
             </button>
         `).join('');
-        document.getElementById('prevBtn').style.opacity = currentStep > 0 ? '1' : '0';
     }
 
     function answer(val) {
@@ -190,44 +206,60 @@
         document.getElementById('quiz').classList.add('hidden');
         document.getElementById('result').classList.remove('hidden');
         
+        const t = translations[currentLang];
         const cScore = userAnswers.slice(0, 5).reduce((a, b) => a + b, 0);
         const aScore = userAnswers.slice(5, 10).reduce((a, b) => a + b, 0);
         
-        const t = translations[currentLang];
-        const getSev = (s) => {
-            if (s <= 5) return { l: t.severityL, c: 'text-emerald-600', bg: 'bg-emerald-50' };
-            if (s <= 10) return { l: t.severityM, c: 'text-amber-600', bg: 'bg-amber-50' };
-            return { l: t.severityH, c: 'text-rose-600', bg: 'bg-rose-50' };
-        }
+        const getSev = (s, max) => {
+            const p = (s/max)*100;
+            if(p < 35) return { l: t.sevL, c: 'text-emerald-500', w: '30%' };
+            if(p < 70) return { l: t.sevM, c: 'text-amber-500', w: '60%' };
+            return { l: t.sevH, c: 'text-rose-500', w: '95%' };
+        };
 
-        const cSev = getSev(cScore);
-        const aSev = getSev(aScore);
+        // Categorized Scores
+        const catScores = [0, 0, 0]; // Anxiety, Stress, Social
+        const catMax = [9, 9, 12]; // Max scores based on questions assigned
+        questions.forEach((q, i) => { catScores[q.cat] += userAnswers[i]; });
 
-        let pattern = (cScore + aScore > 18) 
-            ? (currentLang === 'ar' ? "نمط 'الحماية الزائدة' أو الحذر العاطفي في العلاقات." : "Pattern of 'Over-protection' or emotional caution in relationships.")
-            : (currentLang === 'ar' ? "نمط 'الاستقرار المرن' مع وعي جيد بالحدود." : "Pattern of 'Resilient Stability' with good boundary awareness.");
+        const catNames = [t.anxiety, t.stress, t.social];
 
-        document.getElementById('resultContent').innerHTML = `
-            <div class="grid grid-cols-2 gap-3">
-                <div class="p-4 ${cSev.bg} rounded-2xl text-center">
-                    <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">${t.childhood}</span>
-                    <span class="text-lg font-extrabold ${cSev.c}">${cSev.l}</span>
-                </div>
-                <div class="p-4 ${aSev.bg} rounded-2xl text-center">
-                    <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">${t.adolescence}</span>
-                    <span class="text-lg font-extrabold ${aSev.c}">${aSev.l}</span>
-                </div>
+        document.getElementById('severitySummary').innerHTML = `
+            <div class="p-6 bg-slate-50 rounded-3xl">
+                <span class="text-xs font-bold text-slate-400 block mb-2">${t.childhood}</span>
+                <span class="text-2xl font-black ${getSev(cScore, 15).c}">${getSev(cScore, 15).l}</span>
             </div>
-            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 mt-4">
-                <h4 class="text-xs font-bold text-slate-400 uppercase mb-3">${t.confirmTitle}</h4>
-                <p class="text-slate-800 font-bold mb-4">${pattern}</p>
-                <div class="flex gap-2">
-                    <button onclick="this.parentElement.innerHTML='<p class=\'text-emerald-600 font-bold text-sm\'>✓ تم التأكيد</p>'" class="flex-1 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold shadow-sm">نعم، ينطبق</button>
-                    <button onclick="this.parentElement.innerHTML='<p class=\'text-slate-400 font-bold text-sm\'>تم الحفظ</p>'" class="flex-1 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold shadow-sm">ليس دقيقاً</button>
-                </div>
+            <div class="p-6 bg-slate-50 rounded-3xl">
+                <span class="text-xs font-bold text-slate-400 block mb-2">${t.adolescence}</span>
+                <span class="text-2xl font-black ${getSev(aScore, 15).c}">${getSev(aScore, 15).l}</span>
             </div>
         `;
-        document.getElementById('brightSideText').innerText = t.brightSide;
+
+        document.getElementById('symptomsBreakdown').innerHTML = catScores.map((s, i) => {
+            const sev = getSev(s, catMax[i]);
+            return `
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="font-bold text-slate-700">${catNames[i]}</span>
+                        <span class="font-bold ${sev.c}">${sev.l}</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
+                        <div class="h-full ${sev.c.replace('text', 'bg')} transition-all duration-1000" style="width: ${sev.w}"></div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function confirmResults(isAccurate) {
+        document.getElementById('confirmationBox').classList.add('hidden');
+        const advice = document.getElementById('adviceSection');
+        advice.classList.remove('hidden');
+        const t = translations[currentLang];
+        document.getElementById('adv1').innerText = t.adv1;
+        document.getElementById('adv2').innerText = t.adv2;
+        document.getElementById('adv3').innerText = t.adv3;
+        window.scrollTo({ top: advice.offsetTop, behavior: 'smooth' });
     }
 </script>
 </body>
