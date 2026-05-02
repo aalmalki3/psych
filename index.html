@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>مقياس الجذور النفسية v2.0 | شفق</title>
+    <title>مقياس الجذور النفسية v2.1 | شفق</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,7 +98,6 @@
         }
         .quiz-option:hover { border-color: var(--brand-slate); background: var(--brand-peach); }
 
-        /* Directional alignment */
         [dir="rtl"] .quiz-option { text-align: right; }
         [dir="ltr"] .quiz-option { text-align: left; }
         [dir="rtl"] .quiz-option:hover { transform: translateX(-4px); }
@@ -163,7 +162,7 @@
             <div class="card">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                     <span style="font-weight:700; color: var(--brand-slate); background: rgba(205,224,229,0.2); padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-size:0.9rem;" id="stageLabel">استكشاف الذاكرة</span>
-                    <span id="progressNum" style="font-weight:800; color: var(--brand-slate); font-size:1.2rem;">01 / 17</span>
+                    <span id="progressNum" style="font-weight:800; color: var(--brand-slate); font-size:1.2rem;">01 / 21</span>
                 </div>
                 <h3 id="questionText" style="font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight:700; margin-bottom: 2rem; color: var(--brand-charcoal); min-height: 80px;"></h3>
                 <div id="options" style="margin-bottom: 2rem;"></div>
@@ -188,6 +187,11 @@
             <div id="resilienceBox" class="card" style="display:none; background: #f0fdf4; border-bottom-color: #10b981;">
                 <h5 style="font-weight:800; color:#065f46;" id="resilienceTitle">🌱 مواردك النفسية</h5>
                 <p id="resilienceText" style="color:#065f46; font-size:0.95rem;"></p>
+            </div>
+
+            <div id="overcompensationBox" class="card" style="display:none; background: #faf5ff; border-bottom-color: #7c3aed;">
+                <h5 style="font-weight:800; color:#6b21a8;" id="overcompTitle">⚖️ آليات التكيف المفرطة</h5>
+                <p id="overcompText" style="color:#6b21a8; font-size:0.95rem;"></p>
             </div>
 
             <div id="consistencyBox" class="card" style="background:#f8fafc;">
@@ -266,6 +270,7 @@
             resultTitle: "التقرير النهائي",
             resultDesc: "تحليل أولي للميول والأنماط النفسية",
             resilienceTitle: "🌱 مواردك النفسية",
+            overcompTitle: "⚖️ آليات التكيف المفرطة",
             confirmTitle: "هل تشعر أن النتائج متسقة مع تجربتك؟",
             confirmYes: "نعم، دقيق جداً",
             confirmSomewhat: "إلى حد ما",
@@ -294,6 +299,10 @@
             resilienceLow: "مواردك النفسية منخفضة نسبياً",
             resilienceHighExtra: "حتى في وجود صعوبات، هناك مصادر دعم وأمان تساعدك على التعافي.",
             resilienceLowExtra: "قد تكون تحملت الكثير وحدك. البحث عن مساحة دعم جديدة خطوة شجاعة.",
+            overcompHigh: "لديك ميل لاستخدام آليات تكيف مفرطة",
+            overcompLow: "آليات التكيف لديك متوازنة نسبياً",
+            overcompHighExtra: "هذه الآليات كانت تحميك في الماضي، لكنها الآن قد تكون مرهقة. الوعي بها هو الخطوة الأولى لتخفيفها.",
+            overcompLowExtra: "تظهر مرونة جيدة في عدم التحول إلى تطرف دفاعي.",
             whatNextLow: "<strong>أنت في حالة وعي جيدة.</strong> حافظ على ممارساتك الصحية، ويمكنك تعزيز مناعتك النفسية بتمارين الامتنان والتأمل القصير.",
             whatNextMid: "<strong>هناك بعض الأنماط التي قد تستنزف طاقتك.</strong> جرب تطبيق النصائح أعلاه لمدة أسبوعين. إذا تحسنت، فهذا مؤشر إيجابي. وإن استمرت، قد يكون من المفيد التحدث مع استشاري نفسي مرة واحدة على الأقل.",
             whatNextHigh: "<strong>الأنماط الظاهرة لديك قوية التأثير.</strong> هذا لا يعني أنك \"مكسور\"، بل أن دفاعاتك القديمة لا تزال تحميك بطريقتها. من الحكمة مراجعة مختص نفسي لمساعدتك على تفكيكها بأمان. هذه الأداة مجرد بداية للمحادثة."
@@ -312,6 +321,7 @@
             resultTitle: "Final Report",
             resultDesc: "Preliminary analysis of psychological patterns",
             resilienceTitle: "🌱 Your Psychological Resources",
+            overcompTitle: "⚖️ Overcompensation Patterns",
             confirmTitle: "Do you feel these results reflect your experience?",
             confirmYes: "Yes, very accurate",
             confirmSomewhat: "Somewhat",
@@ -340,6 +350,10 @@
             resilienceLow: "Your psychological resources are relatively low",
             resilienceHighExtra: "Even with difficulties, there are sources of support and safety that help you recover.",
             resilienceLowExtra: "You may have carried a lot alone. Seeking a new support space is a brave step.",
+            overcompHigh: "You tend to use overcompensation mechanisms",
+            overcompLow: "Your coping mechanisms are relatively balanced",
+            overcompHighExtra: "These mechanisms once protected you, but now they may be exhausting. Awareness is the first step to easing them.",
+            overcompLowExtra: "You show good resilience in avoiding defensive extremes.",
             whatNextLow: "<strong>You are in a good state of awareness.</strong> Maintain your healthy practices, and you can strengthen your psychological immunity with gratitude exercises and brief meditation.",
             whatNextMid: "<strong>Some patterns may drain your energy.</strong> Try applying the advice above for two weeks. If you improve, that's a positive sign. If it persists, consider speaking with a counselor at least once.",
             whatNextHigh: "<strong>The patterns shown are strongly impactful.</strong> This does not mean you are \"broken\", but rather that your old defenses are still protecting you in their own way. It is wise to see a mental health professional to safely untangle them. This tool is just the beginning of the conversation."
@@ -348,6 +362,7 @@
 
     // ==================== DATA SETS ====================
     const questionsAR = [
+        // Original 15
         { cat: 0, q: "هل شعرت في طفولتك أنك مضطر لتوقع الأسوأ دائماً؟", inv: false },
         { cat: 1, q: "هل كان تعرضك للنقد أمام الآخرين يسبب لك ألماً شديداً؟", inv: false },
         { cat: 2, q: "هل تشعر حالياً أن قيمتك تعتمد على مدى إرضائك للآخرين؟", inv: false },
@@ -363,8 +378,14 @@
         { cat: 2, q: "هل فقدت الرغبة في خوض تحديات جديدة خوفاً من الإخفاق؟", inv: false },
         { cat: 3, q: "هل تبالغ في رد فعلك تجاه مواقف بسيطة تشبه الماضي؟", inv: false },
         { cat: 4, q: "هل تشعر بمسؤولية ثقيلة عن مشاكل لم تكن أنت سببها؟", inv: false },
+        // Resilience
         { cat: 5, q: "هل كان هناك شخص بالغ واحد على الأقل في طفولتك يشعرك بالأمان والثقة؟", inv: false },
-        { cat: 5, q: "هل تمارس اليوم نشاطاً أو هواية تساعدك على استعادة توازنك النفسي؟", inv: false }
+        { cat: 5, q: "هل تمارس اليوم نشاطاً أو هواية تساعدك على استعادة توازنك النفسي؟", inv: false },
+        // Overcompensation (New 4 questions) 
+        { cat: 6, q: "هل تجد نفسك تسعى للكمال في كل شيء لدرجة أنك لا ترتاح أبداً؟", inv: false },
+        { cat: 6, q: "هل تسامح الآخرين بسرعة مبالغة حتى عندما يؤذونك بشدة، لتجنب الصراع؟", inv: false },
+        { cat: 6, q: "هل تشعر أنك مسؤول عن حماية كل من حولك لدرجة تهمل فيها احتياجاتك؟", inv: false },
+        { cat: 6, q: "هل تبالغ في الشك بنوايا الآخرين لأنك تخاف أن تُخدع مرة أخرى؟", inv: false }
     ];
 
     const questionsEN = [
@@ -384,7 +405,11 @@
         { cat: 3, q: "Do you overreact to simple situations that resemble the past?", inv: false },
         { cat: 4, q: "Do you feel a heavy responsibility for problems you didn't cause?", inv: false },
         { cat: 5, q: "Was there at least one adult in your childhood who made you feel safe and trusted?", inv: false },
-        { cat: 5, q: "Do you currently practice an activity or hobby that helps you regain psychological balance?", inv: false }
+        { cat: 5, q: "Do you currently practice an activity or hobby that helps you regain psychological balance?", inv: false },
+        { cat: 6, q: "Do you find yourself pursuing perfection in everything to the point you never rest?", inv: false },
+        { cat: 6, q: "Do you forgive others too quickly even when deeply hurt, just to avoid conflict?", inv: false },
+        { cat: 6, q: "Do you feel responsible for protecting everyone around you to the point of neglecting your own needs?", inv: false },
+        { cat: 6, q: "Do you excessively doubt others' intentions because you fear being deceived again?", inv: false }
     ];
 
     const categoriesAR = [
@@ -393,7 +418,8 @@
         { id: 2, name: "تقدير الذات والاكتئاب", info: "الشعور بالنقص وفقدان الحافز." },
         { id: 3, name: "آثار الصدمات (PTSD)", info: "ذكريات الماضي التي تقتحم الحاضر." },
         { id: 4, name: "الاحتراق النفسي", info: "تحمل أعباء عاطفية تفوق الطاقة." },
-        { id: 5, name: "موارد المرونة", info: "مؤشر إيجابي على وجود مساحات أمان ودعم." }
+        { id: 5, name: "موارد المرونة", info: "مؤشر إيجابي على وجود مساحات أمان ودعم." },
+        { id: 6, name: "آليات التكيف المفرطة", info: "دفاعات قوية قد تستنزف طاقتك رغم أنها كانت تحميك." }
     ];
 
     const categoriesEN = [
@@ -402,7 +428,8 @@
         { id: 2, name: "Self-Esteem & Depression", info: "Feelings of inadequacy and loss of motivation." },
         { id: 3, name: "Trauma Effects (PTSD)", info: "Past memories that intrude on the present." },
         { id: 4, name: "Psychological Burnout", info: "Carrying emotional burdens beyond capacity." },
-        { id: 5, name: "Resilience Resources", info: "Positive indicator of safety and support." }
+        { id: 5, name: "Resilience Resources", info: "Positive indicator of safety and support." },
+        { id: 6, name: "Overcompensation Patterns", info: "Strong defenses that may drain you despite once protecting you." }
     ];
 
     const adviceDB_AR = {
@@ -430,6 +457,11 @@
             understand: "لقد حملت أثقالاً عاطفية أكبر من عمرك في الصغر (الاستماع لمشاكل الكبار، تحمل المسؤولية مبكراً). هذا جعلك 'بالغاً صغيراً'، والآن تشعر بالإرهاق لأن خزانك العاطفي لم يمتلئ أصلاً.",
             cope: "ابدأ بتمرين 'لا' صغيرة مرة في الأسبوع: ارفض طلباً لا يضر، فقط لتتعلم أن راحتك مشروعة. 'لا' ليست أنانية، بل استعادة لحدودك.",
             family: "لا تجعل أطفالك 'شركاءك العاطفيين' في هموم الكبار. تحدث مع راشدين تثق بهم، وامنح صغارك طفولة خالية من دور المنقذ."
+        },
+        6: {
+            understand: "دفاعاتك القوية (كمالية، حماية مفرطة، غفران بلا حدود) تشكلت لتجنب ألم قديم. أنت لا تبالغ لأنك ضعيف، بل لأنك كنت قوياً جداً وواجهت ما يخيفك بهذه الدروع. لكن هذه الدروع أصبحت ثقيلة.",
+            cope: "جرب تمرين 'التراجع الواعي': مرة في اليوم، اسمح لنفسك بأن تكون 'غير ممتاز' في شيء صغير (مثلاً، لا ترتب السرير تماماً). لاحظ أن العالم لم ينهار. هذا يعيد تهدئة المنبه الداخلي.",
+            family: "لتجنب توريث هذه الآليات: علم أطفالك أن الغضب مسموح به، أن الفشل جزء من التعلم. لا تجعلهم يرون فيك نموذجاً مثالياً لا يتعب ولا يغضب. كن بشرياً أمامهم، فهذا أعظم درس."
         }
     };
 
@@ -458,6 +490,11 @@
             understand: "You carried emotional weights heavier than your age in childhood (listening to adults' problems, taking on responsibility early). This made you a 'little adult,' and now you feel exhausted because your emotional tank was never filled.",
             cope: "Start with a small 'no' exercise once a week: refuse a harmless request, just to learn that your comfort is legitimate. 'No' is not selfishness, but reclaiming your boundaries.",
             family: "Don't make your children your 'emotional partners' in adult concerns. Talk to trusted adults, and give your little ones a childhood free from the rescuer role."
+        },
+        6: {
+            understand: "Your strong defenses (perfectionism, overprotection, boundless forgiveness) were built to avoid old pain. You don't overdo things because you're weak, but because you were so strong and faced your fears with these shields. Yet now these shields have grown heavy.",
+            cope: "Try the 'conscious step-back' exercise: once a day, allow yourself to be 'imperfect' in something small (e.g., don't make the bed perfectly). Notice that the world didn't collapse. This helps recalibrate your internal alarm.",
+            family: "To avoid passing on these patterns: teach your children that anger is allowed, that failure is part of learning. Don't let them see you as a perfect, never-tired, never-angry figure. Be human in front of them — that is the greatest lesson."
         }
     };
 
@@ -479,7 +516,6 @@
         document.documentElement.lang = currentLang;
         document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
         
-        // List of [elementId, translationKey] pairs
         const ids = [
             ['langBtn', 'langBtn'],
             ['envText', 'envText'],
@@ -494,6 +530,7 @@
             ['resultTitle', 'resultTitle'],
             ['resultDesc', 'resultDesc'],
             ['resilienceTitle', 'resilienceTitle'],
+            ['overcompTitle', 'overcompTitle'],
             ['confirmTitle', 'confirmTitle'],
             ['confirmYes', 'confirmYes'],
             ['confirmSomewhat', 'confirmSomewhat'],
@@ -515,20 +552,17 @@
         document.querySelector('#scientificBox').style.textAlign = currentLang === 'ar' ? 'right' : 'left';
     }
 
-    // ==================== LANGUAGE TOGGLE ====================
     function toggleLanguage() {
         currentLang = currentLang === 'ar' ? 'en' : 'ar';
         questions = currentLang === 'ar' ? questionsAR : questionsEN;
         categories = currentLang === 'ar' ? categoriesAR : categoriesEN;
         adviceDB = currentLang === 'ar' ? adviceDB_AR : adviceDB_EN;
         updateAllStaticTexts();
-        // If quiz is active, re-render question
         if (document.getElementById('quiz').style.display === 'block') {
             renderQ();
         }
     }
 
-    // ==================== QUIZ LOGIC ====================
     function startTest() {
         curStep = 0;
         answers = [];
@@ -562,7 +596,6 @@
         if (curStep > 0) { curStep--; renderQ(); }
     }
 
-    // ==================== RESULTS & ADVICE ====================
     function showFinal() {
         document.getElementById('quiz').style.display = 'none';
         document.getElementById('result').style.display = 'block';
@@ -597,9 +630,17 @@
         const resilienceScore = questions.reduce((acc, q, i) => q.cat === 5 ? acc + (answers[i] || 0) : acc, 0);
         const resiliencePercent = (resilienceScore / 8) * 100;
         document.getElementById('resilienceBox').style.display = 'block';
-        const baseMsg = resiliencePercent >= 50 ? t('resilienceHigh') : t('resilienceLow');
-        const extraMsg = resiliencePercent >= 50 ? t('resilienceHighExtra') : t('resilienceLowExtra');
-        document.getElementById('resilienceText').innerText = `${baseMsg} (${resiliencePercent.toFixed(0)}%). ${extraMsg}`;
+        const resBase = resiliencePercent >= 50 ? t('resilienceHigh') : t('resilienceLow');
+        const resExtra = resiliencePercent >= 50 ? t('resilienceHighExtra') : t('resilienceLowExtra');
+        document.getElementById('resilienceText').innerText = `${resBase} (${resiliencePercent.toFixed(0)}%). ${resExtra}`;
+
+        // Overcompensation (New)
+        const overcompScore = questions.reduce((acc, q, i) => q.cat === 6 ? acc + (answers[i] || 0) : acc, 0);
+        const overcompPercent = (overcompScore / 16) * 100;
+        document.getElementById('overcompensationBox').style.display = 'block';
+        const overBase = overcompPercent >= 50 ? t('overcompHigh') : t('overcompLow');
+        const overExtra = overcompPercent >= 50 ? t('overcompHighExtra') : t('overcompLowExtra');
+        document.getElementById('overcompText').innerText = `${overBase} (${overcompPercent.toFixed(0)}%). ${overExtra}`;
 
         // Consistency
         const avgFear = (answers[0] + answers[10]) / 2;
@@ -610,7 +651,7 @@
         document.getElementById('consistencyIcon').innerText = icon;
         document.getElementById('consistencyMsg').innerText = t('consistencyMsgs')[msgIndex];
 
-        // Link between top two problems
+        // Link
         const topIds = results.slice(0, 2).map(r => r.id);
         const linkBox = document.getElementById('linkBox');
         const linkText = document.getElementById('linkText');
@@ -624,7 +665,7 @@
             linkBox.style.display = 'none';
         }
 
-        window.topProblemId = results[0].id;
+        window.topProblemId = overcompPercent >= 50 ? 6 : results[0].id;
     }
 
     function revealAdvice() {
@@ -655,7 +696,6 @@
         el.style.display = el.style.display === 'none' ? 'block' : 'none';
     }
 
-    // Initial load
     document.addEventListener('DOMContentLoaded', () => {
         updateAllStaticTexts();
     });
